@@ -166,12 +166,12 @@ export default function Home() {
             Empowering Rural Maharashtra Since [Year]
           </div>
 
-          <p className="text-saffron text-[1.5rem] font-semibold mb-2">एकच ध्यास... सर्वांगिण विकास...</p>
+          <p className="text-saffron text-[1.5rem] font-semibold mb-2">Let us build the person, build the village, build the nation.</p>
           <p className="text-blue-100 italic text-base sm:text-lg mb-6">One Goal... All-Round Development</p>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 drop-shadow-xl">
-            ग्रामीण महाराष्ट्राच्या विकासासाठी
+           एकच ध्यास... सर्वांगिण विकास...
           </h1>
 
           {/* Tagline */}
