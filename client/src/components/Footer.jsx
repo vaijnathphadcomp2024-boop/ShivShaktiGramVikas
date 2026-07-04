@@ -68,9 +68,9 @@ export default function Footer() {
               <p className="font-semibold text-white uppercase tracking-wide text-[10px] mb-1">
                 Registration Details
               </p>
-              <p>Regd. No.: <span className="text-saffron">[XXXX/YYYY]</span></p>
-              <p>80G / 12A: <span className="text-saffron">[Pending / Add Here]</span></p>
-              <p>PAN: <span className="text-saffron">[XXXXXXXXXX]</span></p>
+              <p>Regd. No.: <span className="text-saffron">F-0025099(LTR)</span></p>
+              <p>80G / 12A: <span className="text-saffron">✅ Registered</span></p>
+              <p>PAN: <span className="text-saffron">AAALS9265P</span></p>
             </div>
           </div>
 
