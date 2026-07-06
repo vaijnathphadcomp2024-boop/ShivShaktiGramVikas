@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 // ─── Real Data ────────────────────────────────────────────────────────────────
 const TEAM = [
@@ -139,14 +140,38 @@ function EnquiryForm() {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
+    
     setLoading(true);
-    setTimeout(() => {
-      // TODO: Wire up to POST /api/enquiries with formType: "General" in Module 13
-      console.log('📨 Contact Enquiry Submitted:', { ...form, formType: 'General' });
+    
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS credentials are not set in .env variables.");
       setLoading(false);
-      setSubmitted(true);
-      setForm(INIT);
-    }, 700);
+      return;
+    }
+
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      phone: form.phone,
+      subject: form.subject,
+      message: form.message,
+    };
+
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setLoading(false);
+        setSubmitted(true);
+        setForm(INIT);
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        setLoading(false);
+      });
   };
 
   const cls = (f) =>

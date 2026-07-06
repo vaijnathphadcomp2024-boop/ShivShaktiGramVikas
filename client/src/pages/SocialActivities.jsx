@@ -181,103 +181,6 @@ function Lightbox({ item, onClose }) {
   );
 }
 
-// ─── Form ─────────────────────────────────────────────────────────────────────
-const validatePhone = (v) => /^[6-9]\d{9}$/.test(v.replace(/\s/g, ''));
-const validateEmail  = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-function VolunteerForm() {
-  const INIT = { name: '', phone: '', email: '', activity: '' };
-  const [form,      setForm]      = useState(INIT);
-  const [errors,    setErrors]    = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [loading,   setLoading]   = useState(false);
-
-  const validate = () => {
-    const e = {};
-    if (!form.name.trim())               e.name     = 'Full name is required.';
-    if (!form.phone.trim())              e.phone    = 'Phone number is required.';
-    else if (!validatePhone(form.phone)) e.phone    = 'Enter a valid 10-digit Indian mobile number.';
-    if (!form.email.trim())              e.email    = 'Email address is required.';
-    else if (!validateEmail(form.email)) e.email    = 'Enter a valid email address.';
-    if (!form.activity)                  e.activity = 'Please select an activity.';
-    return e;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((p) => ({ ...p, [name]: value }));
-    if (errors[name]) setErrors((p) => ({ ...p, [name]: '' }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setLoading(true);
-    setTimeout(() => {
-      console.log('🌿 Social Activities — Volunteer Form:', form);
-      setLoading(false);
-      setSubmitted(true);
-      setForm(INIT);
-    }, 800);
-  };
-
-  const cls = (f) =>
-    `w-full rounded-xl border px-4 py-3 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 transition-colors ${
-      errors[f] ? 'border-red-400 focus:ring-red-300' : 'border-gray-200 focus:ring-forest/40 focus:border-forest'
-    }`;
-
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center py-12 gap-4 text-center">
-        <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center text-4xl shadow">✅</div>
-        <h3 className="text-2xl font-extrabold text-navy">जय हरि विठ्ठल! 🙏</h3>
-        <p className="text-gray-500 max-w-sm text-sm">Your volunteer registration has been received. Our team will contact you shortly.</p>
-        <button onClick={() => setSubmitted(false)} className="mt-2 px-6 py-2.5 rounded-full bg-forest hover:bg-green-800 text-white font-semibold transition-colors">
-          Register Again
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} noValidate className="grid sm:grid-cols-2 gap-5">
-      <div className="flex flex-col gap-1">
-        <label htmlFor="sa-name" className="text-sm font-semibold text-navy">Full Name <span className="text-red-500">*</span></label>
-        <input id="sa-name" name="name" type="text" placeholder="Your full name" value={form.name} onChange={handleChange} className={cls('name')} />
-        {errors.name && <p className="text-xs text-red-500">{errors.name}</p>}
-      </div>
-      <div className="flex flex-col gap-1">
-        <label htmlFor="sa-phone" className="text-sm font-semibold text-navy">Mobile Number <span className="text-red-500">*</span></label>
-        <input id="sa-phone" name="phone" type="tel" placeholder="10-digit mobile" value={form.phone} onChange={handleChange} maxLength={10} className={cls('phone')} />
-        {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
-      </div>
-      <div className="flex flex-col gap-1">
-        <label htmlFor="sa-email" className="text-sm font-semibold text-navy">Email Address <span className="text-red-500">*</span></label>
-        <input id="sa-email" name="email" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange} className={cls('email')} />
-        {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
-      </div>
-      <div className="flex flex-col gap-1">
-        <label htmlFor="sa-activity" className="text-sm font-semibold text-navy">I want to participate in <span className="text-red-500">*</span></label>
-        <select id="sa-activity" name="activity" value={form.activity} onChange={handleChange} className={cls('activity')}>
-          <option value="">— Select activity —</option>
-          {VOLUNTEER_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
-        </select>
-        {errors.activity && <p className="text-xs text-red-500">{errors.activity}</p>}
-      </div>
-      <div className="sm:col-span-2">
-        <button id="sa-volunteer-submit" type="submit" disabled={loading}
-          className="w-full sm:w-auto px-10 py-3.5 rounded-full bg-forest hover:bg-green-800 disabled:opacity-60 text-white font-bold text-base shadow-lg shadow-green-800/30 transition-all duration-200 hover:-translate-y-0.5 flex items-center gap-2">
-          {loading ? (
-            <><svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/></svg>Submitting…</>
-          ) : 'Register as Volunteer →'}
-        </button>
-        <p className="mt-2 text-xs text-gray-400">* All fields required. We respond within 24 hours.</p>
-      </div>
-    </form>
-  );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function SocialActivities() {
   const [galleryFilter,  setGalleryFilter]  = useState('all');
@@ -794,30 +697,6 @@ export default function SocialActivities() {
           <p className="text-center text-xs text-green-400/60 mt-5 italic">
             * All statistics are placeholders — replace with verified programme data.
           </p>
-        </div>
-      </section>
-
-      {/* ── 9. Volunteer Sign-up Form ─────────────────────────────────────── */}
-      <section id="volunteer-form" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeading
-            tag="सहभागी व्हा"
-            title="Volunteer Sign-up"
-            subtitle="Join hands with us — every helping hand makes the community stronger."
-          />
-
-          <div className="bg-white border border-gray-100 rounded-3xl shadow-xl p-6 sm:p-10">
-            <div className="h-1.5 w-24 rounded-full bg-forest mb-8" />
-            <VolunteerForm />
-          </div>
-
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <p className="text-gray-400 text-sm">Or contact us directly:</p>
-            <a href="tel:+910000000000"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest/10 border border-forest/30 text-forest font-semibold text-sm hover:bg-forest hover:text-white transition-colors">
-              📞 +91 00000 00000
-            </a>
-          </div>
         </div>
       </section>
 
