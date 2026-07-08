@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 import BannerSlider from '../components/BannerSlider';
 import Gallery from '../components/Gallery';
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const AGE_GROUPS = [
@@ -70,14 +71,7 @@ const CURRICULUM = [
   { emoji: '🌍', label: 'Cultural Values',          desc: 'Festivals, folk stories and community values woven into lessons.' },
 ];
 
-const FACILITIES = [
-  { label: 'Bright Classrooms',       emoji: '🏫', bg: 'from-orange-300 to-amber-500' },
-  { label: 'Outdoor Play Area',        emoji: '🛝', bg: 'from-green-400 to-emerald-600' },
-  { label: 'Library Corner',           emoji: '📚', bg: 'from-blue-400 to-blue-600' },
-  { label: 'Safe Washroom Facilities', emoji: '🚿', bg: 'from-teal-400 to-teal-600' },
-  { label: 'Nutritious Meal Kitchen',  emoji: '🍱', bg: 'from-yellow-400 to-yellow-600' },
-  { label: 'Medical First-Aid Room',   emoji: '🩺', bg: 'from-pink-400 to-rose-500' },
-];
+// ─── Facilities Removed ────────────────────────────────────────────────────────
 
 const ADMISSION_STEPS = [
   { step: '01', title: 'Enquire',         desc: 'Fill in the enquiry form below or call us directly. Our coordinator will get in touch within 24 hours.' },
@@ -88,14 +82,7 @@ const ADMISSION_STEPS = [
   { step: '06', title: 'Welcome!',        desc: "Receive the school kit, timetable and parent handbook. Your child's journey begins!" },
 ];
 
-const GALLERY_ITEMS = [
-  { label: 'Morning Circle Time',  emoji: '⭕', bg: 'from-orange-300 to-amber-500' },
-  { label: 'Art & Craft Session',  emoji: '🎨', bg: 'from-pink-300 to-rose-500' },
-  { label: 'Outdoor Play Time',    emoji: '🛝', bg: 'from-green-400 to-emerald-500' },
-  { label: 'Story Time',           emoji: '📖', bg: 'from-blue-400 to-sky-500' },
-  { label: 'Annual Day Programme', emoji: '🎭', bg: 'from-purple-400 to-purple-600' },
-  { label: 'Gardening Activity',   emoji: '🌱', bg: 'from-teal-400 to-teal-600' },
-];
+// NOTE: No static gallery items. ──────────────────────────────────────────────────────────────────
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -122,6 +109,34 @@ function SectionHeading({ tag, title, subtitle, light = false }) {
 
 // ─── PreSchool Page ───────────────────────────────────────────────────────────
 export default function PreSchool() {
+  const [schedule, setSchedule] = useState([
+    { time: '9:00', act: 'Morning Assembly' },
+    { time: '9:30', act: 'Circle Time' },
+    { time: '10:00', act: 'Activity / Lesson' },
+    { time: '11:00', act: 'Snack Break' },
+    { time: '11:20', act: 'Outdoor Play' },
+    { time: '12:00', act: 'Creative Arts' },
+    { time: '12:45', act: 'Story / Music' },
+    { time: '1:15', act: 'Lunch & Rest' },
+    { time: '2:00', act: 'Dismissal' },
+  ]);
+
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'preschool_schedule'));
+        if (!snap.empty) {
+          const fetched = snap.docs.map(d => d.data());
+          fetched.sort((a, b) => new Date(a.createdAt || 0) - new Date(b.createdAt || 0));
+          setSchedule(fetched);
+        }
+      } catch (e) {
+        console.error("Error fetching schedule", e);
+      }
+    };
+    fetchSchedule();
+  }, []);
+
   return (
     <main>
 
@@ -314,18 +329,8 @@ export default function PreSchool() {
           <div className="mb-10 bg-gradient-to-r from-saffron to-amber-500 rounded-2xl p-5 sm:p-6 shadow-lg overflow-x-auto">
             <p className="text-white font-bold text-sm uppercase tracking-wide mb-4">Typical Day</p>
             <div className="flex gap-3 min-w-max">
-              {[
-                { time: '9:00', act: 'Morning Assembly' },
-                { time: '9:30', act: 'Circle Time' },
-                { time: '10:00', act: 'Activity / Lesson' },
-                { time: '11:00', act: 'Snack Break' },
-                { time: '11:20', act: 'Outdoor Play' },
-                { time: '12:00', act: 'Creative Arts' },
-                { time: '12:45', act: 'Story / Music' },
-                { time: '1:15', act: 'Lunch & Rest' },
-                { time: '2:00', act: 'Dismissal' },
-              ].map(({ time, act }) => (
-                <div key={time} className="flex flex-col items-center bg-white/20 rounded-xl px-4 py-3 text-white min-w-[90px]">
+              {schedule.map(({ time, act }, idx) => (
+                <div key={idx} className="flex flex-col items-center bg-white/20 rounded-xl px-4 py-3 text-white min-w-[90px]">
                   <span className="text-xs font-bold text-orange-100">{time}</span>
                   <span className="text-xs text-center mt-1 leading-tight">{act}</span>
                 </div>
@@ -351,41 +356,6 @@ export default function PreSchool() {
         </div>
       </section>
 
-      {/* ── 5. Facilities ─────────────────────────────────────────────────── */}
-      <section id="facilities" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading
-            tag="Infrastructure"
-            title="Our Facilities"
-            subtitle="A safe, stimulating, and child-friendly campus designed to inspire learning every day."
-          />
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {FACILITIES.map(({ label, emoji, bg }) => (
-              <div
-                key={label}
-                className={`relative aspect-[4/3] rounded-2xl bg-gradient-to-br ${bg} overflow-hidden group cursor-pointer`}
-              >
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                  <span className="text-5xl sm:text-6xl drop-shadow">{emoji}</span>
-                  <span className="text-white font-bold text-sm sm:text-base text-center px-3 drop-shadow-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-                    {label}
-                  </span>
-                </div>
-                {/* Always-visible label at bottom */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-3 py-2">
-                  <p className="text-white text-xs font-semibold text-center">{label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-center text-xs text-gray-400 mt-4">
-            * Placeholder images — replace with real facility photos.
-          </p>
-        </div>
-      </section>
 
       {/* ── 6. Admission Process & Fees ───────────────────────────────────── */}
       <section id="admission" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">

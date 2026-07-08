@@ -3,132 +3,6 @@ import Gallery from '../components/Gallery';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const PLANTATION_DRIVES = [
-  {
-    date: '[DD Month YYYY]',
-    location: '[Village Name], [Taluka], [District]',
-    trees: 'X+',
-    species: ['Neem (कडुलिंब)', 'Peepal (पिंपळ)', 'Amla (आवळा)'],
-    emoji: '🌳',
-    bg: 'from-green-400 to-emerald-600',
-    note: 'Placeholder — Add details of this plantation drive, organising team, community participation, and any partners involved.',
-  },
-  {
-    date: '[DD Month YYYY]',
-    location: '[Village Name], [Taluka], [District]',
-    trees: 'X+',
-    species: ['Neem (कडुलिंब)', 'Mango (आंबा)', 'Banyan (वड)'],
-    emoji: '🌿',
-    bg: 'from-teal-400 to-teal-700',
-    note: 'Placeholder — Add details of this drive including student volunteers, government partnership, and species selection rationale.',
-  },
-  {
-    date: '[DD Month YYYY]',
-    location: '[Village Name], [Taluka], [District]',
-    trees: 'X+',
-    species: ['Amla (आवळा)', 'Custard Apple (सीताफळ)', 'Neem (कडुलिंब)'],
-    emoji: '🌱',
-    bg: 'from-lime-400 to-green-600',
-    note: 'Placeholder — Add details of this seasonal plantation drive on World Environment Day or similar occasion.',
-  },
-];
-
-const VARKARI_ACTIVITIES = [
-  {
-    emoji: '📖',
-    title: 'Educational Support',
-    subtitle: 'Sant Sahitya & Haripath Studies',
-    desc: 'Supporting students of Varkari Shikshan Sanstha in accessing Sant literature — Abhangas, Gathas, Haripath, and the Dnyaneshwari — through distribution of study materials, reading sessions, and dedicated learning circles.',
-  },
-  {
-    emoji: '🎵',
-    title: 'Community Outreach',
-    subtitle: 'Kirtan, Bhajan & Pravachan',
-    desc: 'Organizing Kirtan and Bhajan sessions in villages to spread the Varkari values of समता (equality), करुणा (compassion), and अभेद (non-discrimination) — rooted in the teachings of the Sant Parampara.',
-  },
-  {
-    emoji: '🏗️',
-    title: 'Development Support',
-    subtitle: 'Infrastructure & Resources',
-    desc: 'Providing infrastructure support, resource materials, and logistical assistance to Varkari Shikshan Sanstha learners and their study centres — placeholder. Add specific activities here.',
-  },
-];
-
-const SAPTAH_SCHEDULE = [
-  { time: 'Brahma Muhurta\n(4:00 – 6:00 AM)', activity: 'Haripath & Namsmaran', emoji: '🙏', desc: 'Opening chanting of the Haripath composed by Sant Dnyaneshwar Maharaj.' },
-  { time: 'Pratah Kal\n(6:00 – 9:00 AM)',   activity: 'Bhajan & Dindi',        emoji: '🥁', desc: 'Morning procession (Dindi) through the village with traditional devotional songs.' },
-  { time: 'Purvahn\n(9:00 AM – 12:00 PM)',  activity: 'Pravachan',              emoji: '📿', desc: 'Discourse on the teachings of Sant Dnyaneshwar, Namdev, Eknath, and Tukaram Maharaj.' },
-  { time: 'Madhyahn\n(12:00 – 1:00 PM)',    activity: 'Prasad Vitaran',         emoji: '🍽️', desc: 'Community Mahaprasad — open to all attendees regardless of background.' },
-  { time: 'Aparahn\n(2:00 – 5:00 PM)',      activity: 'Kirtan',                 emoji: '🎶', desc: 'Extended Kirtan sessions by invited Kirtankars, including narrative storytelling from Sant lives.' },
-  { time: 'Sandhya\n(6:00 – 8:00 PM)',      activity: 'Abhang Gayan',           emoji: '🪔', desc: 'Evening Abhang singing — collective recitation of Abhangas by the congregation.' },
-  { time: 'Ratri\n(8:00 – 10:00 PM)',       activity: 'Akhand Kirtan',          emoji: '🌙', desc: 'Night session of continuous Kirtan — carrying the devotional atmosphere into the next day.' },
-];
-
-const OTHER_PROGRAMS = [
-  {
-    emoji: '🏥',
-    title: 'Free Health Camp',
-    desc: 'Periodic free health check-up camps organized in villages — blood pressure, blood sugar, eye checkups, and basic consultations by visiting doctors. Placeholder — add dates and partners.',
-    color: 'from-blue-50 to-sky-100 border-blue-200',
-    dot: 'bg-navy',
-  },
-  {
-    emoji: '💧',
-    title: 'Water Conservation Awareness',
-    desc: 'Community awareness drives on rainwater harvesting, borewell recharge, and water-saving practices — particularly before the monsoon season. Placeholder — add specific activities.',
-    color: 'from-cyan-50 to-teal-100 border-teal-200',
-    dot: 'bg-teal-500',
-  },
-  {
-    emoji: '👩‍🎓',
-    title: 'Women & Girl Child Awareness',
-    desc: 'Programmes promoting girl child education, prevention of child marriage, and women\'s rights awareness in collaboration with local Panchayats and self-help groups. Placeholder.',
-    color: 'from-rose-50 to-pink-100 border-rose-200',
-    dot: 'bg-magenta',
-  },
-];
-
-const GALLERY_ITEMS = [
-  { label: 'Tree Plantation Drive — [Village]',  emoji: '🌳', bg: 'from-green-400 to-emerald-600',  category: 'tree' },
-  { label: 'Kirtan Sabha at [Village]',           emoji: '🎵', bg: 'from-amber-400 to-orange-600',  category: 'varkari' },
-  { label: 'Saptah Dindi Procession',             emoji: '🥁', bg: 'from-rose-400 to-red-700',      category: 'saptah' },
-  { label: 'Plantation Drive — [Date]',           emoji: '🌱', bg: 'from-lime-400 to-green-600',    category: 'tree' },
-  { label: 'Pravachan Session',                   emoji: '📿', bg: 'from-violet-400 to-purple-700', category: 'varkari' },
-  { label: 'Akhand Kirtan — Night Session',       emoji: '🪔', bg: 'from-yellow-500 to-amber-700',  category: 'saptah' },
-  { label: 'Free Health Camp',                    emoji: '🏥', bg: 'from-blue-400 to-blue-600',     category: 'other' },
-  { label: 'Haripath Study Circle',               emoji: '📖', bg: 'from-teal-400 to-teal-700',     category: 'varkari' },
-  { label: 'Saptah Mahaprasad',                   emoji: '🍽️', bg: 'from-orange-400 to-red-600',   category: 'saptah' },
-  { label: 'Community Awareness Drive',           emoji: '📢', bg: 'from-gray-400 to-gray-600',     category: 'other' },
-];
-
-// NOTE: Replace GALLERY_ITEMS with:
-// fetch(`${import.meta.env.VITE_API_URL}/api/gallery?category=SocialActivity`)
-
-const GALLERY_FILTERS = [
-  { key: 'all',     label: 'All' },
-  { key: 'tree',    label: '🌳 Tree Plantation' },
-  { key: 'varkari', label: '🙏 Varkari Programs' },
-  { key: 'saptah',  label: '🥁 Saptah' },
-  { key: 'other',   label: '✨ Other' },
-];
-
-const STATS = [
-  { num: 'X+',    label: 'Trees Planted',             emoji: '🌳' },
-  { num: 'X+',    label: 'Saptah Events Organized',   emoji: '🙏' },
-  { num: 'X+',    label: 'Villages Reached',          emoji: '🌍' },
-  { num: 'X+',    label: 'Varkari Students Supported',emoji: '📖' },
-  { num: 'X+',    label: 'Lives Touched',             emoji: '❤️' },
-];
-
-const VOLUNTEER_OPTIONS = [
-  'Tree Plantation Drive',
-  'Varkari Shikshan Support',
-  'Saptah Seva (Volunteer)',
-  'Health Camp Volunteer',
-  'Women Empowerment Drive',
-  'General Community Volunteer',
-];
-
 const NAV_TABS = [
   { href: '#tree-plantation', label: 'Tree Plantation',      emoji: '🌳' },
   { href: '#varkari',         label: 'Varkari Shikshan',     emoji: '🙏' },
@@ -136,6 +10,37 @@ const NAV_TABS = [
   { href: '#other-programs',  label: 'Other Programs',        emoji: '✨' },
 ];
 
+const DEFAULT_PLANTATIONS = [
+  { date: 'Upcoming', location: 'Location TBD', trees: '500+', species: 'Neem, Peepal, Banyan', emoji: '??', bg: 'from-green-400 to-emerald-600', note: 'Details to be added.' },
+  { date: 'Upcoming', location: 'Location TBD', trees: '200+', species: 'Mango, Amla', emoji: '??', bg: 'from-teal-400 to-teal-700', note: 'Details to be added.' },
+  { date: 'Upcoming', location: 'Location TBD', trees: '100+', species: 'Custard Apple, Neem', emoji: '??', bg: 'from-lime-400 to-green-600', note: 'Details to be added.' },
+];
+
+const DEFAULT_VARKARI = [
+  { emoji: '??', title: 'Educational Support', subtitle: 'Sant Sahitya Studies', desc: 'Supporting students of Varkari Shikshan Sanstha in accessing Sant literature.' },
+  { emoji: '??', title: 'Community Outreach', subtitle: 'Kirtan & Bhajan', desc: 'Organizing Kirtan and Bhajan sessions in villages to spread Varkari values.' },
+  { emoji: '??', title: 'Development Support', subtitle: 'Infrastructure', desc: 'Providing infrastructure support to Varkari Shikshan Sanstha study centres.' },
+];
+
+const DEFAULT_SAPTAH = [
+  { time: 'Morning', activity: 'Bhajan & Dindi', emoji: '??', desc: 'Morning procession through the village.' },
+  { time: 'Afternoon', activity: 'Pravachan', emoji: '??', desc: 'Discourse on the teachings of Saints.' },
+  { time: 'Evening', activity: 'Kirtan', emoji: '??', desc: 'Extended Kirtan sessions.' },
+];
+
+const DEFAULT_PROGRAMS = [
+  { emoji: '??', title: 'Free Health Camp', desc: 'Periodic free health check-up camps organized in villages.', color: 'from-blue-50 to-sky-100 border-blue-200', dot: 'bg-navy' },
+  { emoji: '??', title: 'Water Conservation', desc: 'Community awareness drives on rainwater harvesting.', color: 'from-cyan-50 to-teal-100 border-teal-200', dot: 'bg-teal-500' },
+  { emoji: '?????', title: 'Women Awareness', desc: 'Programmes promoting girl child education.', color: 'from-rose-50 to-pink-100 border-rose-200', dot: 'bg-magenta' },
+];
+
+const DEFAULT_STATS = [
+  { num: '5000+', label: 'Trees Planted', emoji: '??' },
+  { num: '10+', label: 'Saptah Events', emoji: '??' },
+  { num: '50+', label: 'Villages Reached', emoji: '??' },
+  { num: '200+', label: 'Students Supported', emoji: '??' },
+  { num: '10k+', label: 'Lives Touched', emoji: '??' },
+];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function SectionHeading({ tag, title, subtitle, light = false, accentColor = 'bg-forest' }) {
@@ -159,38 +64,36 @@ function SectionHeading({ tag, title, subtitle, light = false, accentColor = 'bg
   );
 }
 
-// ─── Lightbox ─────────────────────────────────────────────────────────────────
-function Lightbox({ item, onClose }) {
-  useEffect(() => {
-    const h = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
-  }, [onClose]);
-
-  return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
-      <div className="relative max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute -top-4 -right-4 z-10 w-9 h-9 rounded-full bg-white text-navy font-bold flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors" aria-label="Close">✕</button>
-        <div className={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${item.bg} flex flex-col items-center justify-center gap-4 shadow-2xl`}>
-          <span className="text-8xl drop-shadow-lg">{item.emoji}</span>
-          <span className="text-white font-bold text-lg text-center px-6 drop-shadow-md">{item.label}</span>
-          <span className="text-xs text-white/60 italic">[Replace with actual photo]</span>
-        </div>
-        <p className="text-white/70 text-center text-sm mt-3">{item.label}</p>
-      </div>
-    </div>
-  );
-}
+// ─── Lightbox logic removed ───────────────────────────────────────────────────
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function SocialActivities() {
-  const [galleryFilter,  setGalleryFilter]  = useState('all');
-  const [lightboxItem,   setLightboxItem]   = useState(null);
   const [activeTab,      setActiveTab]      = useState(NAV_TABS[0].href);
+  const [plantations, setPlantations] = useState([]);
+  const [varkari, setVarkari] = useState([]);
+  const [saptah, setSaptah] = useState([]);
+  const [programs, setPrograms] = useState([]);
+  const [stats, setStats] = useState([]);
 
-  const filteredGallery = galleryFilter === 'all'
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter((i) => i.category === galleryFilter);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pSnap = await getDocs(collection(db, 'soc_plantations'));
+        setPlantations(pSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        const vSnap = await getDocs(collection(db, 'soc_varkari'));
+        setVarkari(vSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        const sSnap = await getDocs(collection(db, 'soc_saptah'));
+        setSaptah(sSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        const prSnap = await getDocs(collection(db, 'soc_programs'));
+        setPrograms(prSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        const stSnap = await getDocs(collection(db, 'soc_stats'));
+        setStats(stSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
 
   // Highlight active tab on scroll
   useEffect(() => {
@@ -262,11 +165,11 @@ export default function SocialActivities() {
 
           {/* 5 quick stats */}
           <div className="mt-14 grid grid-cols-3 sm:grid-cols-5 gap-3 max-w-3xl mx-auto">
-            {STATS.map(({ num, label, emoji }) => (
-              <div key={label} className="bg-white/10 backdrop-blur rounded-2xl p-3 border border-white/10">
+            {(stats.length > 0 ? stats : DEFAULT_STATS).map(({ num, label, emoji }, i) => (
+              <div key={i} className="bg-white/10 backdrop-blur rounded-2xl p-3 border border-white/10">
                 <p className="text-xl mb-0.5">{emoji}</p>
                 <p className="text-xl font-extrabold text-white">{num}</p>
-                <p className="text-[10px] text-green-200 leading-tight">{label}</p>
+                <p className="text-xs text-green-200 mt-0.5 leading-tight">{label}</p>
               </div>
             ))}
           </div>
@@ -296,7 +199,7 @@ export default function SocialActivities() {
         </div>
       </nav>
 
-      {/* ── 3. Tree Plantation Drives ─────────────────────────────────────── */}
+      {/* ── 2. Tree Plantation ─────────────────────────────────────────────── */}
       <section id="tree-plantation" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -305,30 +208,12 @@ export default function SocialActivities() {
             subtitle="Growing a greener Maharashtra — one village, one tree at a time."
           />
 
-          {/* Cumulative counter */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-            <div className="bg-white rounded-2xl shadow border border-green-100 px-8 py-5 text-center">
-              <p className="text-4xl font-extrabold text-forest">X+</p>
-              <p className="text-sm text-gray-500 mt-1">Trees Planted in Total</p>
-            </div>
-            <div className="text-3xl text-gray-300 font-thin hidden sm:block">|</div>
-            <div className="bg-white rounded-2xl shadow border border-green-100 px-8 py-5 text-center">
-              <p className="text-4xl font-extrabold text-forest">Y+</p>
-              <p className="text-sm text-gray-500 mt-1">Villages Covered</p>
-            </div>
-            <div className="text-3xl text-gray-300 font-thin hidden sm:block">|</div>
-            <div className="bg-white rounded-2xl shadow border border-green-100 px-8 py-5 text-center">
-              <p className="text-4xl font-extrabold text-forest">Z+</p>
-              <p className="text-sm text-gray-500 mt-1">Species Planted</p>
-            </div>
-          </div>
-
           {/* Drive cards */}
           <div className="grid sm:grid-cols-3 gap-6">
-            {PLANTATION_DRIVES.map(({ date, location, trees, species, emoji, bg, note }, i) => (
+            {(plantations.length > 0 ? plantations : DEFAULT_PLANTATIONS).map(({ date, location, trees, species, emoji, bg, note }, i) => (
               <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 overflow-hidden flex flex-col">
                 {/* Photo placeholder */}
-                <div className={`relative h-40 bg-gradient-to-br ${bg} flex items-center justify-center`}>
+                <div className={`relative h-40 bg-gradient-to-br ${bg || 'from-green-400 to-emerald-600'} flex items-center justify-center`}>
                   <span className="text-7xl drop-shadow-lg">{emoji}</span>
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-2">
                     <p className="text-white text-xs font-semibold">{date}</p>
@@ -352,11 +237,13 @@ export default function SocialActivities() {
                   </div>
 
                   {/* Species tags */}
+                  {species && (
                   <div className="flex flex-wrap gap-1.5">
-                    {species.map((s) => (
-                      <span key={s} className="px-2.5 py-0.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-medium">{s}</span>
+                    {species.split(',').map((s) => (
+                      <span key={s} className="px-2.5 py-0.5 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-medium">{s.trim()}</span>
                     ))}
                   </div>
+                  )}
 
                   {/* Note */}
                   <p className="text-gray-400 text-xs leading-relaxed italic flex-1">{note}</p>
@@ -371,7 +258,7 @@ export default function SocialActivities() {
         </div>
       </section>
 
-      {/* ── 4. Varkari Shikshan Sanstha ───────────────────────────────────── */}
+      {/* ── 3. Varkari Shikshan & Community Programs ──────────────────────── */}
       <section id="varkari" className="py-16 px-4 sm:px-6 lg:px-8 bg-amber-50 scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           {/* Special heading with saffron accent */}
@@ -429,8 +316,8 @@ export default function SocialActivities() {
 
           {/* 3 activity cards */}
           <div className="grid sm:grid-cols-3 gap-5">
-            {VARKARI_ACTIVITIES.map(({ emoji, title, subtitle, desc }) => (
-              <div key={title} className="bg-white rounded-2xl border border-amber-100 shadow-sm p-6 hover:shadow-lg hover:border-saffron transition-all duration-200 group flex flex-col gap-4">
+            {(varkari.length > 0 ? varkari : DEFAULT_VARKARI).map(({ emoji, title, subtitle, desc }, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-amber-100 shadow-sm p-6 hover:shadow-lg hover:border-saffron transition-all duration-200 group flex flex-col gap-4">
                 <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
                   {emoji}
                 </div>
@@ -463,7 +350,7 @@ export default function SocialActivities() {
         </div>
       </section>
 
-      {/* ── 5. Saptah (सप्ताह) ────────────────────────────────────────────── */}
+      {/* ── 4. Saptah (Haripath & Akhand Kirtan) ──────────────────────────── */}
       <section id="saptah" className="py-16 px-4 sm:px-6 lg:px-8 bg-[#1e0a2e] scroll-mt-28">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
@@ -483,18 +370,12 @@ export default function SocialActivities() {
             <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-violet-500" />
           </div>
 
-          {/* About paragraph */}
           <div className="bg-white/5 backdrop-blur rounded-2xl border border-white/10 p-6 sm:p-8 mb-10 text-violet-100 leading-relaxed text-sm sm:text-base">
             <p className="mb-3">
               The <strong className="text-white">Akhand Harinam Saptah</strong> is a seven-day uninterrupted
               devotional programme where Kirtan, Bhajan, Pravachan, Haripath, and Dindi continue
               around the clock, creating a sacred atmosphere of continuous remembrance of God
               (<em>Hari</em>) in the Varkari tradition.
-            </p>
-            <p>
-              Shivshakti GramVikas Pratishtan organises and supports the Saptah in villages across
-              our region, ensuring that this tradition reaches every home — regardless of caste, class,
-              or creed, as commanded by the Varkari Sampraday itself.
             </p>
           </div>
 
@@ -508,8 +389,8 @@ export default function SocialActivities() {
               <div className="relative">
                 <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-500 via-purple-600 to-violet-900" />
                 <div className="space-y-5">
-                  {SAPTAH_SCHEDULE.map(({ time, activity, emoji, desc }) => (
-                    <div key={activity} className="relative flex items-start gap-4 pl-12">
+                  {(saptah.length > 0 ? saptah : DEFAULT_SAPTAH).map(({ time, activity, emoji, desc }, i) => (
+                    <div key={i} className="relative flex items-start gap-4 pl-12">
                       {/* Timeline node */}
                       <div className="absolute left-2.5 -translate-x-1/2 w-5 h-5 rounded-full bg-violet-700 border-2 border-violet-400 flex items-center justify-center text-xs z-10">
                         {emoji}
@@ -524,55 +405,11 @@ export default function SocialActivities() {
                 </div>
               </div>
             </div>
-
-            {/* Right column: Event details + Who participates */}
-            <div className="flex flex-col gap-5">
-              {/* Event details card */}
-              <div className="bg-white/5 backdrop-blur rounded-2xl border border-white/10 p-6">
-                <h3 className="text-white font-bold text-base mb-4 flex items-center gap-2">
-                  <span>📋</span> Event Details — Next Saptah
-                </h3>
-                <dl className="space-y-3">
-                  {[
-                    { dt: 'Event Name',        dd: 'अखंड हरिनाम सप्ताह' },
-                    { dt: 'Venue',             dd: '[Village / Temple / Ground Name] — Placeholder' },
-                    { dt: 'Next Date',         dd: '[Date TBD] — Placeholder' },
-                    { dt: 'Duration',          dd: '7 Days (Uninterrupted)' },
-                    { dt: 'Chief Kirtankar',   dd: '[Kirtankar Name] — Placeholder' },
-                    { dt: 'Organized By',      dd: 'Shivshakti GramVikas Pratishtan' },
-                    { dt: 'Entry',             dd: 'Free & Open to All — No Registration Required' },
-                  ].map(({ dt, dd }) => (
-                    <div key={dt} className="flex items-start gap-2 text-sm">
-                      <span className="text-violet-400 font-semibold w-32 shrink-0">{dt}:</span>
-                      <span className="text-violet-100">{dd}</span>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-
-              {/* Who participates */}
-              <div className="bg-white/5 backdrop-blur rounded-2xl border border-white/10 p-6">
-                <h3 className="text-white font-bold text-base mb-3">👥 Who Can Participate?</h3>
-                <p className="text-violet-200 text-sm leading-relaxed mb-4">
-                  The Saptah is open to <strong className="text-white">all villagers, devotees, and families</strong> —
-                  without any distinction of caste, religion, or social background, in keeping with the
-                  core Varkari philosophy: <em>"विठ्ठलाचे द्वार सर्वांसाठी खुले आहे।"</em>
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['All Villagers', 'Devotees & Warkaris', 'Families & Children', 'Youth Groups', 'NGO Volunteers', 'Neighbouring Villages'].map((g) => (
-                    <span key={g} className="px-3 py-1 rounded-full bg-violet-800/50 border border-violet-600 text-violet-200 text-xs font-medium">
-                      {g}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              </div>
           </div>
         </div>
       </section>
 
-      {/* ── 6. Other Community Programs ───────────────────────────────────── */}
+      {/* ── 5. Other Social Programs ──────────────────────────────────────── */}
       <section id="other-programs" className="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-28">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
@@ -581,8 +418,8 @@ export default function SocialActivities() {
             subtitle="Beyond our three pillars — additional drives that serve the broader community."
           />
           <div className="grid sm:grid-cols-3 gap-5">
-            {OTHER_PROGRAMS.map(({ emoji, title, desc, color, dot }) => (
-              <div key={title} className={`rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group`}>
+            {(programs.length > 0 ? programs : DEFAULT_PROGRAMS).map(({ emoji, title, desc, color, dot }, i) => (
+              <div key={i} className={`rounded-2xl border bg-gradient-to-br ${color || 'from-gray-50 to-gray-100 border-gray-200'} p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group`}>
                 <span className="text-4xl group-hover:scale-110 transition-transform inline-block">{emoji}</span>
                 <div>
                   <h3 className="font-bold text-navy text-base mb-1.5">{title}</h3>
@@ -592,23 +429,20 @@ export default function SocialActivities() {
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-400 mt-5">
-            * Program descriptions are placeholders — add specific dates, partners, and outcomes.
-          </p>
         </div>
       </section>
 
       <Gallery pageId="socialactivities" title="Photo Gallery" subtitle="A visual journey of our community outreach and social drives." />
 
-      {/* ── 8. Impact Statistics Band ─────────────────────────────────────── */}
+      {/* ── 6. Impact & CTA ───────────────────────────────────────────────── */}
       <section id="impact" className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-forest via-[#0a4f2b] to-navy">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-xs font-bold uppercase tracking-widest text-green-300 mb-8">
             Our Impact — By the Numbers
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
-            {STATS.map(({ num, label, emoji }) => (
-              <div key={label} className="flex flex-col items-center gap-2 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10">
+            {(stats.length > 0 ? stats : DEFAULT_STATS).map(({ num, label, emoji }, i) => (
+              <div key={i} className="flex flex-col items-center gap-2 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10">
                 <span className="text-3xl">{emoji}</span>
                 <p className="text-3xl font-extrabold text-white">{num}</p>
                 <p className="text-xs text-green-200 text-center leading-tight">{label}</p>

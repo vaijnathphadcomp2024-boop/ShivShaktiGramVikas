@@ -297,68 +297,8 @@ function VisionMission() {
   );
 }
 
-// ─── 4. Registration Details ──────────────────────────────────────────────────
-function RegistrationDetails() {
-  const rows = [
-    { label: 'Organisation Name',         value: 'Shivshakti GramVikas Pratishtan' },
-    { label: 'Registration Number',       value: '[REG-XXXX/YYYY]' },
-    { label: 'Date of Registration',      value: '[DD/MM/YYYY]' },
-    { label: 'Registered Under',          value: 'Maharashtra Public Trust Act, 1950' },
-    { label: 'PAN Number',                value: '[XXXXXXXXXX]' },
-    { label: '12A Certification',         value: '[12A Ref. No. / Pending]' },
-    { label: '80G Certification',         value: '[80G Ref. No. / Pending]' },
-    { label: 'FCRA Registration',         value: '[FCRA No. / Not Applicable]' },
-    { label: 'Registered Office Address', value: '[Village], [Taluka], [District], Maharashtra — [PIN]' },
-  ];
 
-  return (
-    <section id="registration" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
-        <SectionHeading
-          tag="Legal & Compliance"
-          title="Registration Details"
-          subtitle="Official registration and tax-exemption information for donors and partners."
-        />
-
-        <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-          {/* Header bar */}
-          <div className="bg-navy px-6 py-4 flex items-center gap-3">
-            <svg className="w-5 h-5 text-saffron" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span className="text-white font-semibold text-sm">Official Trust Documents</span>
-          </div>
-
-          {/* Table */}
-          <div className="divide-y divide-gray-100">
-            {rows.map(({ label, value }, i) => (
-              <div
-                key={label}
-                className={`flex flex-col sm:flex-row sm:items-center px-6 py-4 gap-1 ${
-                  i % 2 === 0 ? 'bg-white' : 'bg-gray-50/60'
-                }`}
-              >
-                <dt className="sm:w-56 text-xs font-semibold text-gray-400 uppercase tracking-wide shrink-0">
-                  {label}
-                </dt>
-                <dd className="text-navy font-medium text-sm sm:text-base">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </div>
-
-          {/* Footer note */}
-          <div className="bg-saffron/10 border-t border-saffron/20 px-6 py-3">
-            <p className="text-xs text-gray-500">
-              <span className="font-semibold text-navy">Note:</span> Donations to Shivshakti GramVikas Pratishtan are eligible for tax deduction under Section 80G of the Income Tax Act (subject to certification). Please contact us for the latest certificates.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+// ─── Registration Details Removed ──────────────────────────────────────────────
 
 // ─── 5. Trustees / Committee Members ─────────────────────────────────────────
 const AVATAR_COLORS = [
@@ -511,7 +451,7 @@ export default function About() {
       <FounderMessage />
       <History />
       <VisionMission />
-      <RegistrationDetails />
+      {/* Registration details removed */}
       <Trustees />
       <Achievements />
     </main>

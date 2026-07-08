@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import HomepageTab from './tabs/HomepageTab';
+import AboutTab from './tabs/AboutTab';
 import PreSchoolTab from './tabs/PreSchoolTab';
 import ReadIndiaTab from './tabs/ReadIndiaTab';
 import SafetyCollegeTab from './tabs/SafetyCollegeTab';
@@ -11,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const TABS = [
   { id: 'home', label: 'Homepage' },
+  { id: 'about', label: 'About Us' },
   { id: 'preschool', label: 'Pre School' },
   { id: 'readindia', label: 'Read India' },
   { id: 'safetycollege', label: 'Safety College' },
@@ -69,6 +71,7 @@ export default function AdminDashboard() {
       <main className="flex-1 p-6 md:p-10 overflow-y-auto">
         <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 min-h-[70vh]">
           {activeTab === 'home' && <HomepageTab />}
+          {activeTab === 'about' && <AboutTab />}
           {activeTab === 'preschool' && <PreSchoolTab />}
           {activeTab === 'readindia' && <ReadIndiaTab />}
           {activeTab === 'safetycollege' && <SafetyCollegeTab />}

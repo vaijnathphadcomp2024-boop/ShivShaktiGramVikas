@@ -1,6 +1,9 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import BannerSlider from '../components/BannerSlider';
+import Gallery from '../components/Gallery';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 // ─── Dummy notices (replace with API data later) ─────────────────────────────
 const NOTICES = [
@@ -102,17 +105,6 @@ const IMPACT_STATS = [
   { emoji: '❤️', title: 'जीवन बदलले', subtitle: 'Lives Touched', value: 2000, suffix: '+' },
 ];
 
-// ─── Impact statistics for the new journey band ─────────────────────────────────
-// ─── Gallery placeholder colours (replace with real images later) ─────────────
-const GALLERY_PLACEHOLDERS = [
-  { label: 'Pre School Activity',   bg: 'from-blue-400 to-blue-600',   emoji: '📚' },
-  { label: 'Read India Session',    bg: 'from-green-400 to-green-600', emoji: '📖' },
-  { label: 'Safety Training',       bg: 'from-orange-400 to-orange-600', emoji: '🦺' },
-  { label: 'Tree Plantation Drive', bg: 'from-emerald-400 to-emerald-600', emoji: '🌳' },
-  { label: 'Community Health Camp', bg: 'from-pink-400 to-pink-600',   emoji: '🏥' },
-  { label: 'Women Empowerment',     bg: 'from-purple-400 to-purple-600', emoji: '💪' },
-];
-
 // ─── Ticker Component ─────────────────────────────────────────────────────────
 function NoticeTicker() {
   const trackRef = useRef(null);
@@ -142,6 +134,29 @@ function NoticeTicker() {
 
 // ─── Home Page ────────────────────────────────────────────────────────────────
 export default function Home() {
+  const [impactStats, setImpactStats] = useState([]);
+  const [loadingImpact, setLoadingImpact] = useState(true);
+
+  useEffect(() => {
+    const fetchImpact = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'impactStats'));
+        if (!snap.empty) {
+          const fetchedStats = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          fetchedStats.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+          setImpactStats(fetchedStats);
+        }
+      } catch (e) {
+        console.error("Error fetching impact stats", e);
+      } finally {
+        setLoadingImpact(false);
+      }
+    };
+    fetchImpact();
+  }, []);
+
+  const statsToShow = impactStats.length > 0 ? impactStats : IMPACT_STATS;
+
   return (
     <main>
       {/* ── 1. Notice Ticker ───────────────────────────────────────────────── */}
@@ -364,7 +379,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {IMPACT_STATS.map(({ emoji, title, subtitle, value, suffix }) => (
+            {statsToShow.map(({ emoji, title, subtitle, value, suffix }) => (
               <div key={title} className="rounded-3xl border border-slate-200/80 bg-slate-50 p-6 text-center shadow-sm">
                 <div className="text-4xl mb-4">{emoji}</div>
                 <p className="text-saffron font-bold text-3xl">{value}{suffix}</p>
@@ -389,24 +404,7 @@ export default function Home() {
             <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-saffron" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            {GALLERY_PLACEHOLDERS.map(({ label, bg, emoji }, i) => (
-              <div
-                key={i}
-                className={`relative aspect-[4/3] rounded-2xl bg-gradient-to-br ${bg} overflow-hidden group cursor-pointer`}
-              >
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-200" />
-                {/* Emoji centre */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                  <span className="text-5xl sm:text-6xl drop-shadow">{emoji}</span>
-                  <span className="text-white font-semibold text-sm sm:text-base text-center px-3 drop-shadow-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-                    {label}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Gallery pageId="home" />
 
           <div className="text-center mt-8">
             <button

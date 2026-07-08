@@ -72,18 +72,7 @@ const WOMENS_PROGRAM = [
   },
 ];
 
-const GALLERY_ITEMS = [
-  { label: 'Literacy Class in Session',       emoji: '📖', bg: 'from-cyan-400 to-cyan-600' },
-  { label: 'Vocational Training — Tailoring', emoji: '🧵', bg: 'from-rose-400 to-pink-600' },
-  { label: 'Early Childhood Programme',        emoji: '🧒', bg: 'from-orange-300 to-amber-500' },
-  { label: "Women's Leadership Day",           emoji: '🌟', bg: 'from-purple-400 to-purple-600' },
-  { label: 'Digital Skills Training',          emoji: '💻', bg: 'from-blue-400 to-blue-600' },
-  { label: 'Community Library',                emoji: '📚', bg: 'from-teal-400 to-teal-600' },
-  { label: 'Health Awareness Session',         emoji: '🩺', bg: 'from-green-400 to-emerald-600' },
-  { label: 'Youth Career Workshop',            emoji: '🎓', bg: 'from-indigo-400 to-indigo-600' },
-];
-
-// NOTE: When the API is ready, replace GALLERY_ITEMS with:
+// NOTE: No static gallery items.
 // const [gallery, setGallery] = useState([]);
 // useEffect(() => {
 //   fetch(`${import.meta.env.VITE_API_URL}/api/gallery?category=ReadIndia`)
