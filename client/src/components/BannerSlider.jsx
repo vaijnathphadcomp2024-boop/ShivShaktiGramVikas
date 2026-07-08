@@ -75,6 +75,7 @@ export default function BannerSlider({ pageId }) {
       <Swiper
         modules={[Autoplay, Pagination, EffectFade, Navigation]}
         effect="fade"
+        fadeEffect={{ crossFade: true }}
         speed={1000}
         autoplay={{
           delay: 4000,
@@ -90,8 +91,8 @@ export default function BannerSlider({ pageId }) {
         className="w-full h-[300px] md:h-[450px] lg:h-[550px] [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-next]:drop-shadow-lg [&_.swiper-button-prev]:drop-shadow-lg"
       >
         {images.map((imgUrl, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
+          <SwiperSlide key={index} className="bg-gray-100">
+            <div className="relative w-full h-full bg-gray-100">
               <img
                 src={imgUrl}
                 alt={`${pageId} banner ${index + 1}`}

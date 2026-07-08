@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import { db } from '../firebase';
-import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { doc, getDoc, collection, getDocs, addDoc } from 'firebase/firestore';
 
 // ─── Real Data ────────────────────────────────────────────────────────────────
 const TEAM = [
@@ -148,42 +147,30 @@ function EnquiryForm() {
     if (errors[name]) setErrors((p) => ({ ...p, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     
     setLoading(true);
     
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      console.error("EmailJS credentials are not set in .env variables.");
-      setLoading(false);
-      return;
-    }
-
-    const templateParams = {
-      from_name: form.name,
-      from_email: form.email,
-      phone: form.phone,
-      subject: form.subject,
-      message: form.message,
-    };
-
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setLoading(false);
-        setSubmitted(true);
-        setForm(INIT);
-      })
-      .catch((err) => {
-        console.error('FAILED...', err);
-        setLoading(false);
+    try {
+      await addDoc(collection(db, 'enquiries'), {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        subject: form.subject,
+        message: form.message,
+        createdAt: new Date().toISOString(),
       });
+      setSubmitted(true);
+      setForm(INIT);
+    } catch (err) {
+      console.error('FAILED...', err);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const cls = (f) =>

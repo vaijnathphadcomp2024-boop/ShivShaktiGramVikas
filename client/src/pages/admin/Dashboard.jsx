@@ -6,6 +6,7 @@ import ReadIndiaTab from './tabs/ReadIndiaTab';
 import SafetyCollegeTab from './tabs/SafetyCollegeTab';
 import SocialActivitiesTab from './tabs/SocialActivitiesTab';
 import ContactTab from './tabs/ContactTab';
+import MessagesTab from './tabs/MessagesTab';
 import { auth } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +19,7 @@ const TABS = [
   { id: 'safetycollege', label: 'Safety College' },
   { id: 'social', label: 'Social Activities' },
   { id: 'contact', label: 'Contact Details' },
+  { id: 'messages', label: 'Messages / Enquiries' },
 ];
 
 export default function AdminDashboard() {
@@ -77,6 +79,7 @@ export default function AdminDashboard() {
           {activeTab === 'safetycollege' && <SafetyCollegeTab />}
           {activeTab === 'social' && <SocialActivitiesTab />}
           {activeTab === 'contact' && <ContactTab />}
+          {activeTab === 'messages' && <MessagesTab />}
         </div>
       </main>
     </div>
