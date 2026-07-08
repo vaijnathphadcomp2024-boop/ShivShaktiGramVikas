@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { db } from '../firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
 
 // ─── Real Data ────────────────────────────────────────────────────────────────
 const TEAM = [
@@ -25,7 +25,7 @@ const TEAM = [
   },
 ];
 
-const NOTICES = [
+const DEFAULT_NOTICES = [
   {
     category: 'Admission',
     categoryColor: 'bg-navy text-white',
@@ -80,6 +80,16 @@ const isValidEmail  = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
 // WhatsApp link helper
 const waLink = (phone) => `https://wa.me/91${phone}`;
+
+const getCategoryColor = (category) => {
+  const cat = category?.toLowerCase() || '';
+  if (cat.includes('admission')) return 'bg-navy text-white';
+  if (cat.includes('event')) return 'bg-forest text-white';
+  if (cat.includes('general')) return 'bg-saffron text-white';
+  if (cat.includes('ambulance')) return 'bg-[#e11d48] text-white';
+  if (cat.includes('social')) return 'bg-cyan text-white';
+  return 'bg-gray-500 text-white';
+};
 
 // ─── WhatsApp icon SVG ────────────────────────────────────────────────────────
 function WhatsAppIcon({ className = 'w-4 h-4' }) {
@@ -263,6 +273,7 @@ export default function Contact() {
   const [bankDetails, setBankDetails] = useState({
     accountName: '', accountNumber: '', ifscCode: '', bankName: '', branch: '', accountType: '', upiId: '', qrUrl: ''
   });
+  const [notices, setNotices] = useState(DEFAULT_NOTICES);
 
   useEffect(() => {
     const fetchBankDetails = async () => {
@@ -274,7 +285,20 @@ export default function Contact() {
         }
       } catch (e) { console.error(e); }
     };
+
+    const fetchNotices = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'notices'));
+        if (!snap.empty) {
+          const fetched = snap.docs.map(d => d.data());
+          fetched.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+          setNotices(fetched);
+        }
+      } catch (e) { console.error(e); }
+    };
+
     fetchBankDetails();
+    fetchNotices();
   }, []);
 
   return (
@@ -521,9 +545,9 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4">
-              {NOTICES.map(({ category, categoryColor, date, title, desc }) => (
+              {notices.map(({ category, categoryColor, date, title, desc }, idx) => (
                 <div
-                  key={title}
+                  key={idx}
                   className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col sm:flex-row gap-4"
                 >
                   {/* Left accent line */}
@@ -531,7 +555,7 @@ export default function Contact() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide ${categoryColor}`}>
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide ${categoryColor || getCategoryColor(category)}`}>
                         {category}
                       </span>
                       <span className="text-xs text-gray-400 font-medium">📅 {date}</span>

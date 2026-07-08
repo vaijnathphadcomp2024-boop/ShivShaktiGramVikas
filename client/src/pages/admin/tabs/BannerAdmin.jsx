@@ -127,8 +127,8 @@ export default function BannerAdmin({ pageId, title = "Manage Slider Banners" })
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {banners.map(banner => (
-              <div key={banner.id} className="relative rounded-xl overflow-hidden shadow-sm group aspect-video">
-                <img src={banner.imageUrl} alt="Banner" className="w-full h-full object-cover" />
+              <div key={banner.id} className="h-32 bg-gray-100 rounded-lg overflow-hidden relative mb-3 group">
+                <img src={banner.imageUrl} alt="Banner" className="w-full h-full object-contain bg-black/5" />
                 <button 
                   onClick={() => handleDelete(banner.id)}
                   className="absolute top-2 right-2 w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"

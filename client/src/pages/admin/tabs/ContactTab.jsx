@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { uploadToImageKit, deleteFromImageKit } from '../../../utils/imagekit';
+import ObjectListAdmin from './ObjectListAdmin';
 
 export default function ContactTab() {
   const [bankDetails, setBankDetails] = useState({
@@ -133,6 +134,33 @@ export default function ContactTab() {
           </button>
         </div>
       </form>
+
+      <div className="pt-8 border-t">
+        <ObjectListAdmin
+          title="Manage Latest Notices / News"
+          collectionName="notices"
+          fields={[
+            { name: 'title', placeholder: 'Notice Title', required: true },
+            { name: 'date', placeholder: 'Date (e.g. July 2026)', required: true },
+            { 
+              name: 'category', 
+              placeholder: 'Category (e.g. General, Admission, Event, Ambulance, Social)', 
+              required: true 
+            },
+            { name: 'desc', placeholder: 'Description', type: 'textarea', required: true }
+          ]}
+          renderItem={(item) => (
+            <div>
+              <div className="flex gap-2 items-center mb-1">
+                <span className="px-2 py-0.5 bg-gray-200 text-xs font-bold rounded uppercase">{item.category}</span>
+                <span className="text-xs text-gray-500">{item.date}</span>
+              </div>
+              <p className="font-bold text-navy">{item.title}</p>
+              <p className="text-sm text-gray-600 line-clamp-2">{item.desc}</p>
+            </div>
+          )}
+        />
+      </div>
     </div>
   );
 }

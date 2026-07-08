@@ -95,7 +95,7 @@ export default function BannerSlider({ pageId }) {
               <img
                 src={imgUrl}
                 alt={`${pageId} banner ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-black/5"
                 loading={index === 0 ? "eager" : "lazy"}
               />
               {/* Subtle dark gradient overlay for better text readability if text is added later */}
