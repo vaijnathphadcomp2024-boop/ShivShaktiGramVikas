@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import Gallery from '../components/Gallery';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -256,10 +257,7 @@ export default function SocialActivities() {
               className="px-8 py-3.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold shadow-lg shadow-orange-500/30 transition-all duration-200 hover:-translate-y-0.5">
               Explore Our Activities
             </a>
-            <a href="#volunteer-form"
-              className="px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold transition-all duration-200 hover:-translate-y-0.5">
-              Volunteer With Us 🙏
-            </a>
+            
           </div>
 
           {/* 5 quick stats */}
@@ -569,18 +567,7 @@ export default function SocialActivities() {
                 </div>
               </div>
 
-              {/* Register CTA */}
-              <div className="bg-gradient-to-br from-violet-700 to-purple-900 rounded-2xl p-6 border border-violet-500 shadow-xl">
-                <h3 className="text-white font-bold text-base mb-2">🙏 Join the Saptah Seva</h3>
-                <p className="text-violet-200 text-sm mb-4">
-                  Register as a volunteer to help with organisation, prasad distribution, Dindi coordination, or logistics.
-                </p>
-                <a href="#volunteer-form"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold text-sm transition-colors shadow">
-                  Register / Join Seva →
-                </a>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -611,73 +598,7 @@ export default function SocialActivities() {
         </div>
       </section>
 
-      {/* ── 7. Photo Gallery with Filter Tabs + Lightbox ──────────────────── */}
-      <section id="sa-gallery" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading
-            tag="आमचे क्षण"
-            title="Photo Gallery"
-            subtitle="Glimpses from our plantation drives, devotional programmes, and community services."
-          />
-
-          {/* Filter tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {GALLERY_FILTERS.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => setGalleryFilter(key)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-150 ${
-                  galleryFilter === key
-                    ? 'bg-forest text-white shadow'
-                    : 'bg-white border border-gray-200 text-gray-500 hover:border-forest hover:text-forest'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-
-          {/* Gallery grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {filteredGallery.map((item, i) => (
-              <button
-                key={i}
-                onClick={() => setLightboxItem(item)}
-                className={`relative ${i % 5 === 0 ? 'sm:col-span-2 aspect-video' : 'aspect-square'} rounded-2xl bg-gradient-to-br ${item.bg} overflow-hidden group focus:outline-none focus:ring-2 focus:ring-forest`}
-                aria-label={`View: ${item.label}`}
-              >
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-200" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-4xl sm:text-5xl drop-shadow">{item.emoji}</span>
-                </div>
-                {/* Hover reveal caption */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-200">
-                  <p className="text-white text-xs font-semibold leading-tight">{item.label}</p>
-                </div>
-                {/* Zoom icon */}
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
-                    <svg className="w-3.5 h-3.5 text-navy" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {filteredGallery.length === 0 && (
-            <p className="text-center text-gray-400 text-sm py-10">No photos in this category yet.</p>
-          )}
-          <p className="text-center text-xs text-gray-400 mt-4">
-            * Placeholder images — replace with actual event photos from each activity. Click any image to enlarge.<br />
-            API note: When backend is ready, fetch from <code className="bg-gray-100 px-1 rounded">GET /api/gallery?category=SocialActivity</code>
-          </p>
-        </div>
-      </section>
-
-      {/* Lightbox */}
-      {lightboxItem && <Lightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
+      <Gallery pageId="socialactivities" title="Photo Gallery" subtitle="A visual journey of our community outreach and social drives." />
 
       {/* ── 8. Impact Statistics Band ─────────────────────────────────────── */}
       <section id="impact" className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-forest via-[#0a4f2b] to-navy">

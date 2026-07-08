@@ -1,3 +1,7 @@
+import { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const TIMELINE = [
@@ -367,6 +371,23 @@ const AVATAR_COLORS = [
 ];
 
 function Trustees() {
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMembers = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'committeeMembers'));
+        setMembers(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      } catch (err) {
+        console.error("Error fetching trustees", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchMembers();
+  }, []);
+
   return (
     <section id="trustees" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -376,44 +397,43 @@ function Trustees() {
           subtitle="Meet the dedicated individuals who guide and govern Shivshakti GramVikas Pratishtan."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TRUSTEES.map(({ name, designation, initials }, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 overflow-hidden group"
-            >
-              {/* Top colour strip */}
-              <div className={`h-2 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
+        {loading ? (
+          <p className="text-center text-gray-500">Loading members...</p>
+        ) : members.length === 0 ? (
+          <p className="text-center text-gray-500">Members will be updated soon.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {members.map((member, i) => (
+              <div
+                key={member.id}
+                className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 overflow-hidden group"
+              >
+                <div className={`h-2 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
 
-              <div className="p-6 flex flex-col items-center text-center">
-                {/* Avatar placeholder */}
-                <div
-                  className={`w-20 h-20 rounded-full bg-gradient-to-br ${
-                    AVATAR_COLORS[i % AVATAR_COLORS.length]
-                  } flex items-center justify-center text-white font-extrabold text-xl shadow-md mb-4 group-hover:scale-105 transition-transform duration-200`}
-                >
-                  {initials}
+                <div className="p-6 flex flex-col items-center text-center">
+                  {member.imageUrl ? (
+                    <img src={member.imageUrl} alt={member.name} className="w-20 h-20 rounded-full object-cover shadow-md mb-4 group-hover:scale-105 transition-transform duration-200" />
+                  ) : (
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center text-white font-extrabold text-xl shadow-md mb-4 group-hover:scale-105 transition-transform duration-200`}>
+                      {member.name.charAt(0)}
+                    </div>
+                  )}
+
+                  <h3 className="font-bold text-navy text-base leading-tight mb-1">{member.name}</h3>
+                  <p className="text-xs font-semibold text-saffron uppercase tracking-wide mb-3">
+                    {member.designation}
+                  </p>
+
+                  <div className="w-10 h-0.5 rounded-full bg-gray-200 mb-3" />
+
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    Dedicated to the mission of rural empowerment and community development.
+                  </p>
                 </div>
-
-                <h3 className="font-bold text-navy text-base leading-tight mb-1">{name}</h3>
-                <p className="text-xs font-semibold text-saffron uppercase tracking-wide mb-3">
-                  {designation}
-                </p>
-
-                {/* Divider */}
-                <div className="w-10 h-0.5 rounded-full bg-gray-200 mb-3" />
-
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Dedicated to the mission of rural empowerment and community development.
-                </p>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-center text-xs text-gray-400 mt-6">
-          * Names and photos will be updated with real details. Replace initials with actual trustee photos.
-        </p>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -421,6 +441,23 @@ function Trustees() {
 
 // ─── 6. Achievements & Recognitions ──────────────────────────────────────────
 function Achievements() {
+  const [achievements, setAchievements] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAchievements = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'achievements'));
+        setAchievements(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      } catch (err) {
+        console.error("Error fetching achievements", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAchievements();
+  }, []);
+
   return (
     <section id="achievements" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-navy to-forest">
       <div className="max-w-4xl mx-auto">
@@ -437,21 +474,30 @@ function Achievements() {
           <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-saffron" />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
-          {ACHIEVEMENTS.map(({ emoji, text }, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-4 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-colors group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-saffron/20 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
-                {emoji}
+        {loading ? (
+          <p className="text-center text-blue-200">Loading achievements...</p>
+        ) : achievements.length === 0 ? (
+          <p className="text-center text-blue-200">Our milestones will be updated soon.</p>
+        ) : (
+          <div className="grid sm:grid-cols-2 gap-4">
+            {achievements.map((ach, i) => (
+              <div
+                key={ach.id}
+                className="flex items-start gap-4 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-colors group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-saffron/20 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                  🏆
+                </div>
+                <div className="self-center">
+                  <p className="text-white font-bold text-sm sm:text-base mb-1">{ach.title}</p>
+                  <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                    {ach.description}
+                  </p>
+                </div>
               </div>
-              <p className="text-blue-100 text-sm sm:text-base leading-relaxed self-center">
-                {text}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

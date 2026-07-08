@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
+import { db } from '../firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 // ─── Real Data ────────────────────────────────────────────────────────────────
 const TEAM = [
@@ -258,6 +260,23 @@ function EnquiryForm() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Contact() {
+  const [bankDetails, setBankDetails] = useState({
+    accountName: '', accountNumber: '', ifscCode: '', bankName: '', branch: '', accountType: '', upiId: '', qrUrl: ''
+  });
+
+  useEffect(() => {
+    const fetchBankDetails = async () => {
+      try {
+        const docRef = doc(db, 'settings', 'bankDetails');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setBankDetails(docSnap.data());
+        }
+      } catch (e) { console.error(e); }
+    };
+    fetchBankDetails();
+  }, []);
+
   return (
     <>
       {/* ── Sticky mobile bar (below 768px only) ───────────────────────── */}

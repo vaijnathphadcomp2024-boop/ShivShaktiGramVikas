@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import BannerSlider from '../components/BannerSlider';
+import Gallery from '../components/Gallery';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -188,6 +190,8 @@ export default function PreSchool() {
           </div>
         </div>
       </section>
+
+      <BannerSlider pageId="preschool" />
 
       {/* ── 2. About / Philosophy ─────────────────────────────────────────── */}
       <section id="about-preschool" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -414,76 +418,22 @@ export default function PreSchool() {
             ))}
           </div>
 
-          {/* Fee table */}
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-md overflow-hidden">
-            <div className="bg-saffron px-6 py-4">
-              <h3 className="text-white font-bold text-base">Fee Structure (Annual) — [Academic Year]</h3>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead className="bg-orange-50 text-gray-500 uppercase text-xs tracking-wide">
-                  <tr>
-                    <th className="text-left px-6 py-3">Class</th>
-                    <th className="text-left px-6 py-3">Age</th>
-                    <th className="text-left px-6 py-3">Admission Fee</th>
-                    <th className="text-left px-6 py-3">Term Fee (× 3)</th>
-                    <th className="text-left px-6 py-3">Annual Total</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 text-navy font-medium">
-                  {[
-                    { cls: 'Toddler',   age: '2–3 yrs', adm: '₹ [XXX]', term: '₹ [XXX]', total: '₹ [XXXX]' },
-                    { cls: 'Nursery',   age: '3–4 yrs', adm: '₹ [XXX]', term: '₹ [XXX]', total: '₹ [XXXX]' },
-                    { cls: 'Junior KG', age: '4–5 yrs', adm: '₹ [XXX]', term: '₹ [XXX]', total: '₹ [XXXX]' },
-                    { cls: 'Senior KG', age: '5–6 yrs', adm: '₹ [XXX]', term: '₹ [XXX]', total: '₹ [XXXX]' },
-                  ].map(({ cls, age, adm, term, total }, i) => (
-                    <tr key={cls} className={i % 2 === 1 ? 'bg-orange-50/40' : ''}>
-                      <td className="px-6 py-3 font-semibold">{cls}</td>
-                      <td className="px-6 py-3 text-gray-500">{age}</td>
-                      <td className="px-6 py-3">{adm}</td>
-                      <td className="px-6 py-3">{term}</td>
-                      <td className="px-6 py-3 text-saffron font-bold">{total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="px-6 py-3 bg-orange-50 border-t border-orange-100">
-              <p className="text-xs text-gray-500">
-                * Scholarships available for children from BPL families. Fees subject to revision. Contact us for exact figures.
-              </p>
-            </div>
+          {/* Download Fee Structure */}
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-md p-8 text-center max-w-xl mx-auto mt-10">
+            <h3 className="text-navy font-bold text-xl mb-3">Fee Structure</h3>
+            <p className="text-gray-500 text-sm mb-6">
+              Download our complete fee structure for the current academic year, including details about instalment options and scholarships for BPL families.
+            </p>
+            <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold transition-all shadow shadow-orange-500/30 hover:-translate-y-0.5">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Fee Structure
+            </a>
           </div>
         </div>
       </section>
 
       {/* ── 7. Photo Gallery ──────────────────────────────────────────────── */}
-      <section id="ps-gallery" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading
-            tag="Memories"
-            title="Photo Gallery"
-            subtitle="Glimpses of learning, laughter and growth from our classrooms and activities."
-          />
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            {GALLERY_ITEMS.map(({ label, emoji, bg }) => (
-              <div
-                key={label}
-                className={`relative aspect-[4/3] rounded-2xl bg-gradient-to-br ${bg} overflow-hidden group cursor-pointer`}
-              >
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-200" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                  <span className="text-5xl sm:text-6xl drop-shadow">{emoji}</span>
-                  <span className="text-white font-semibold text-sm text-center px-3 drop-shadow-md opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-200">
-                    {label}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Gallery pageId="preschool" title="Photo Gallery" subtitle="Glimpses of learning, laughter and growth from our classrooms and activities." />
 
     </main>
   );

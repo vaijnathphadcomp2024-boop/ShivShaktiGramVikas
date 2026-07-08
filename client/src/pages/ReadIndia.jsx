@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import BannerSlider from '../components/BannerSlider';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import Gallery from '../components/Gallery';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -286,13 +290,6 @@ export default function ReadIndia() {
             >
               Visit a Center
             </a>
-            <a
-              href="#womens-program"
-              id="ri-womens-btn"
-              className="px-8 py-3.5 rounded-full bg-magenta hover:bg-rose-700 border border-magenta text-white font-bold transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-magenta/30"
-            >
-              Join the Women's Program
-            </a>
           </div>
 
           {/* Quick stats */}
@@ -308,7 +305,9 @@ export default function ReadIndia() {
         </div>
       </section>
 
-      {/* ── 2. About the Center ───────────────────────────────────────────── */}
+      <BannerSlider pageId="readindia" />
+
+      {/* ── 2. About the Center ─────────────────────────────────────────────────────────── */}
       <section id="about-readindia" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -436,73 +435,22 @@ export default function ReadIndia() {
             ))}
           </div>
 
-          {/* CTA strip */}
           <div className="bg-gradient-to-r from-magenta to-rose-700 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
             <div className="text-white">
-              <h3 className="text-xl font-extrabold mb-1">Ready to Join the Women's Program?</h3>
               <p className="text-rose-100 text-sm">
-                Free enrollment — open to all women aged 15 and above from partner villages.
               </p>
             </div>
             <a
               href="#join"
               className="shrink-0 px-7 py-3 rounded-full bg-white text-magenta font-bold hover:bg-rose-50 transition-colors shadow"
             >
-              Enroll Now →
             </a>
           </div>
         </div>
       </section>
-
-      {/* ── 5. Photo Gallery (with Lightbox) ─────────────────────────────── */}
-      <section id="ri-gallery" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading
-            tag="Gallery"
-            title="Our Centers in Action"
-            subtitle="A glimpse into the learning, laughter, and transformation happening every day."
-          />
-
-          {/* NOTE: Replace GALLERY_ITEMS with API data when backend is ready:
-              GET /api/gallery?category=ReadIndia → map over response.data */}
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {GALLERY_ITEMS.map((item, i) => (
-              <button
-                key={i}
-                onClick={() => setLightboxItem(item)}
-                className={`relative ${i === 0 || i === 5 ? 'sm:col-span-2 aspect-video' : 'aspect-square'} rounded-2xl bg-gradient-to-br ${item.bg} overflow-hidden group focus:outline-none focus:ring-2 focus:ring-cyan`}
-                aria-label={`View: ${item.label}`}
-              >
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-200" />
-                {/* Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                  <span className="text-4xl sm:text-5xl drop-shadow">{item.emoji}</span>
-                </div>
-                {/* Bottom label */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-200">
-                  <p className="text-white text-xs font-semibold text-center leading-tight">{item.label}</p>
-                </div>
-                {/* Zoom icon */}
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
-                    <svg className="w-3.5 h-3.5 text-navy" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
-                    </svg>
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
-          <p className="text-center text-xs text-gray-400 mt-4">
-            * Placeholder images — replace with actual center photos. Click any image to enlarge.
-          </p>
-        </div>
-      </section>
-
-      {/* Lightbox portal */}
-      {lightboxItem && <Lightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />}
+  
+      <Gallery pageId="readindia" title="Our Centers in Action" subtitle="Glimpses of learning, engagement and community building across Read India." />
+  
 
       {/* ── 6. Centers & Timings ──────────────────────────────────────────── */}
       <section id="centers" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

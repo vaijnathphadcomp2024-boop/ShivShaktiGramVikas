@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import BannerSlider from '../components/BannerSlider';
 
 // ─── Dummy notices (replace with API data later) ─────────────────────────────
 const NOTICES = [
@@ -217,6 +218,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <BannerSlider pageId="home" />
 
       {/* ── 3. Quick Links Grid ────────────────────────────────────────────── */}
       <section id="programs" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">

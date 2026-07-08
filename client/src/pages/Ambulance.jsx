@@ -261,12 +261,7 @@ export default function Ambulance() {
               >
                 📞 Call Now
               </a>
-              <a
-                href="#booking-form"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border-2 border-white/40 text-white font-bold text-lg transition-colors"
-              >
-                Request Online
-              </a>
+              
             </div>
 
             {/* Coverage badge */}

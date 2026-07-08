@@ -1,4 +1,9 @@
 import { Link } from 'react-router-dom';
+import BannerSlider from '../components/BannerSlider';
+import { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import Gallery from '../components/Gallery';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -119,6 +124,23 @@ function Badge({ children, variant = 'solid' }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function SafetyCollege() {
+  const [courses, setCourses] = useState([]);
+  const [partners, setPartners] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const cSnap = await getDocs(collection(db, 'safetyCourses'));
+        setCourses(cSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+        
+        const pSnap = await getDocs(collection(db, 'safetyPartners'));
+        setPartners(pSnap.docs.map(d => ({ id: d.id, ...d.data() })));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <main>
 
@@ -162,13 +184,6 @@ export default function SafetyCollege() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
-            <Link
-              to="/safety-college/apply"
-              id="sc-apply-hero-btn"
-              className="px-8 py-3.5 rounded-full bg-white text-magenta font-bold shadow-lg hover:bg-rose-50 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Apply Now →
-            </Link>
             <a
               href="#courses"
               className="px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold transition-all duration-200 hover:-translate-y-0.5"
@@ -199,6 +214,8 @@ export default function SafetyCollege() {
           </div>
         </div>
       </section>
+
+      <BannerSlider pageId="safety" />
 
       {/* ── 2. About the College ──────────────────────────────────────────── */}
       <section id="about-college" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -320,28 +337,6 @@ export default function SafetyCollege() {
                   ))}
                 </div>
 
-                {/* Highlights */}
-                <div className="p-5 flex-1">
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">Key Subjects</p>
-                  <ul className="space-y-2">
-                    {highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-sm text-gray-600">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-magenta shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CTA */}
-                <div className="px-5 pb-5">
-                  <Link
-                    to="/safety-college/apply"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-magenta/10 border border-magenta/30 text-magenta font-bold text-sm hover:bg-magenta hover:text-white transition-colors duration-200"
-                  >
-                    Apply for {name.split(' ').slice(-2).join(' ')} →
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
@@ -403,76 +398,7 @@ export default function SafetyCollege() {
         </div>
       </section>
 
-      {/* ── 5. Eligibility & Admission Process ───────────────────────────── */}
-      <section id="admission" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <SectionHeading
-            tag="How to Apply"
-            title="Eligibility & Admission Process"
-            subtitle="A transparent, merit-based admission process in 6 simple steps."
-          />
-
-          {/* Eligibility box */}
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 mb-10">
-            <h3 className="font-bold text-navy mb-4 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-lg bg-magenta/10 flex items-center justify-center text-magenta text-sm font-extrabold">✓</span>
-              Minimum Eligibility Criteria
-            </h3>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { course: 'Diploma in Industrial Safety',       elig: 'HSC (10+2) or ITI Pass — any stream — with min. 45% marks (40% for reserved categories)' },
-                { course: 'Diploma in Fire & Safety Engineering', elig: 'HSC (10+2) with Science & Mathematics preferred — min. 45% marks (40% for reserved categories)' },
-              ].map(({ course, elig }) => (
-                <div key={course} className="bg-rose-50 rounded-xl p-4 border border-rose-100">
-                  <p className="font-semibold text-magenta text-sm mb-1">{course}</p>
-                  <p className="text-gray-600 text-sm">{elig}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-gray-400 mt-3">
-              * Age: 17–25 years as on date of admission. Relaxation as per Maharashtra government norms.
-            </p>
-          </div>
-
-          {/* Steps */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {ADMISSION_STEPS.map(({ n, title, desc }) => (
-              <div
-                key={n}
-                className="relative bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:shadow-md hover:border-magenta transition-all duration-200 overflow-hidden group"
-              >
-                <span className="absolute -top-3 -right-3 text-8xl font-extrabold text-rose-50 select-none group-hover:text-rose-100 transition-colors">
-                  {n}
-                </span>
-                <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-magenta text-white flex items-center justify-center font-extrabold text-sm mb-4 shadow">
-                    {n}
-                  </div>
-                  <h3 className="font-bold text-navy mb-2">{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Apply CTA */}
-          <div className="mt-10 text-center">
-            <Link
-              to="/safety-college/apply"
-              id="sc-apply-admission-btn"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-magenta hover:bg-rose-700 text-white font-bold text-lg shadow-xl shadow-magenta/30 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Apply Now — [Academic Year]
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
-            </Link>
-            <p className="mt-2 text-xs text-gray-400">
-              Deadline: [DD Month YYYY] — Limited seats per programme.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Admission section removed */}
 
       {/* ── 6. Faculty Profiles ───────────────────────────────────────────── */}
       <section id="faculty" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -598,24 +524,7 @@ export default function SafetyCollege() {
             ))}
           </div>
 
-          {/* Placed student cards */}
-          <h3 className="text-white font-bold text-center mb-5 text-sm uppercase tracking-widest">
-            Our Graduates — Where They Work
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-            {PLACEMENTS.map(({ name, batch, company, role, emoji }) => (
-              <div key={name + company} className="bg-white rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-rose-50 flex items-center justify-center text-2xl mx-auto mb-3">
-                  {emoji}
-                </div>
-                <p className="font-bold text-navy text-xs leading-tight">{name}</p>
-                <p className="text-[10px] text-gray-400 mt-0.5">{batch}</p>
-                <div className="my-2 h-px bg-gray-100" />
-                <p className="text-[10px] font-semibold text-magenta">{role}</p>
-                <p className="text-[10px] text-gray-400">{company}</p>
-              </div>
-            ))}
-          </div>
+          {/* Graduates section removed */}
 
           {/* Employer logos placeholder */}
           <div className="text-center">
@@ -671,41 +580,10 @@ export default function SafetyCollege() {
         </div>
       </section>
 
-      {/* ── 10. Apply Now CTA Strip ───────────────────────────────────────── */}
-      <section id="apply" className="py-14 px-4 sm:px-6 lg:px-8 bg-magenta">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <p className="text-xs font-bold uppercase tracking-widest text-rose-200 mb-2">Admissions Open</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
-            Ready to Build Your Safety Career?
-          </h2>
-          <p className="text-rose-100 mb-8 max-w-xl mx-auto">
-            Seats are limited. Apply before <strong>[Deadline Date]</strong> to secure your place
-            in the [Academic Year] batch.
-          </p>
+      {/* CTA section removed */}
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/safety-college/apply"
-              id="sc-apply-cta-btn"
-              className="px-10 py-4 rounded-full bg-white text-magenta font-extrabold text-lg shadow-2xl hover:bg-rose-50 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Apply Now →
-            </Link>
-            <a
-              href="tel:+910000000000"
-              className="px-10 py-4 rounded-full bg-white/15 border border-white/30 text-white font-bold text-lg hover:bg-white/25 transition-all duration-200 hover:-translate-y-0.5"
-            >
-              📞 Call Admissions
-            </a>
-          </div>
-
-          <p className="mt-6 text-xs text-rose-200">
-            📍 [College Address, Village, District, Maharashtra — PIN] &nbsp;|&nbsp;
-            ✉️ [admissions@shivshaktisafety.org]
-          </p>
-        </div>
-      </section>
-
+    
+      <Gallery pageId="safetycollege" title="Photo Gallery" subtitle="A glimpse into our state-of-the-art facilities and student life." />
     </main>
   );
 }
