@@ -130,7 +130,7 @@ function FounderMessage() {
                 👤
               </div>
               <div className="text-center">
-                <p className="font-bold text-white text-sm">Shri. [Founder Name]</p>
+                <p className="font-bold text-white text-sm">Prof.Pandurang Digambar Dahiphale</p>
                 <p className="text-xs text-orange-200">Founder & Chairman</p>
               </div>
             </div>
@@ -157,7 +157,7 @@ function FounderMessage() {
               </p>
               <div className="mt-6 h-px bg-white/20" />
               <p className="mt-4 text-sm text-orange-200 font-medium">
-                — Shri. [Founder Name], Founder, Shivshakti GramVikas Pratishtan
+                — Prof.Pandurang Digambar Dahiphale, Founder, Shivshakti GramVikas Pratishtan
               </p>
             </blockquote>
           </div>
