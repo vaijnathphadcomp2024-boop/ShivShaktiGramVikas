@@ -138,7 +138,7 @@ export default function SafetyCollege() {
         </div>
       </section>
 
-      <BannerSlider pageId="safety" />
+      <BannerSlider pageId="safetycollege" />
 
       {/* ── 2. About the College ──────────────────────────────────────────── */}
       <section id="about-college" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -376,6 +376,8 @@ export default function SafetyCollege() {
       )}
 
       {/* CTA section removed */}
+
+      <Gallery pageId="safetycollege" title="Photo Gallery" subtitle="A visual journey of our campus and activities." />
 
     </main>
   );

@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Gallery from '../components/Gallery';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -432,7 +434,7 @@ export default function SocialActivities() {
         </div>
       </section>
 
-      <Gallery pageId="socialactivities" title="Photo Gallery" subtitle="A visual journey of our community outreach and social drives." />
+      <Gallery pageId="social" title="Photo Gallery" subtitle="A visual journey of our community outreach and social drives." />
 
       {/* ── 6. Impact & CTA ───────────────────────────────────────────────── */}
       <section id="impact" className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-forest via-[#0a4f2b] to-navy">
