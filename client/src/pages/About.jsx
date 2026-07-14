@@ -207,14 +207,19 @@ function History() {
 
                   {/* Card — offset left or right on desktop */}
                   <div
-                    className={`ml-16 sm:ml-0 sm:w-[calc(50%-3rem)] bg-white rounded-2xl shadow-md border border-gray-100 p-5 hover:shadow-lg transition-shadow ${
-                      isLeft ? 'sm:mr-auto sm:text-right' : 'sm:ml-auto sm:text-left'
-                    }`}
+                    className={`ml-16 sm:ml-0 sm:w-[calc(50%-3rem)] bg-white rounded-2xl shadow-md
+                               border border-gray-100 p-5 group
+                               hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+                               relative overflow-hidden
+                               ${ isLeft ? 'sm:mr-auto sm:text-right' : 'sm:ml-auto sm:text-left' }`}
                   >
-                    <span className="inline-block text-xs font-bold text-saffron uppercase tracking-wider mb-1">
+                    {/* Gradient accent top strip */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-saffron to-orange-300" />
+                    <span className="inline-block text-xs font-black text-saffron uppercase tracking-wider mb-1.5"
+                          style={{ background: 'linear-gradient(135deg,#f97316,#fb923c)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                       {item.year}
                     </span>
-                    <h3 className="font-bold text-navy text-base mb-1">{item.title}</h3>
+                    <h3 className="font-bold text-navy text-base mb-1.5">{item.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -346,25 +351,44 @@ function Trustees() {
             {members.map((member, i) => (
               <div
                 key={member.id}
-                className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 overflow-hidden group"
+                className="bg-white border border-gray-100 rounded-2xl shadow-sm
+                           hover:shadow-xl transition-all duration-300 hover:-translate-y-2
+                           overflow-hidden group"
               >
-                <div className={`h-2 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
+                {/* Gradient top strip */}
+                <div className={`h-1.5 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
 
-                <div className="p-6 flex flex-col items-center text-center">
+                <div className="p-7 flex flex-col items-center text-center">
+                  {/* Avatar */}
                   {member.imageUrl ? (
-                    <img src={member.imageUrl} alt={member.name} className="w-20 h-20 rounded-full object-cover shadow-md mb-4 group-hover:scale-105 transition-transform duration-200" />
+                    <div className="relative mb-4">
+                      <img
+                        src={member.imageUrl}
+                        alt={member.name}
+                        className="w-20 h-20 rounded-full object-cover shadow-lg
+                                   group-hover:scale-105 group-hover:shadow-xl
+                                   transition-all duration-300 ring-2 ring-transparent
+                                   group-hover:ring-saffron group-hover:ring-offset-2"
+                      />
+                    </div>
                   ) : (
-                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center text-white font-extrabold text-xl shadow-md mb-4 group-hover:scale-105 transition-transform duration-200`}>
+                    <div
+                      className={`w-20 h-20 rounded-full bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]}
+                                  flex items-center justify-center text-white font-extrabold text-xl
+                                  shadow-lg mb-4 group-hover:scale-110 group-hover:shadow-xl
+                                  transition-all duration-300 ring-2 ring-transparent
+                                  group-hover:ring-saffron group-hover:ring-offset-2`}
+                    >
                       {member.name.charAt(0)}
                     </div>
                   )}
 
                   <h3 className="font-bold text-navy text-base leading-tight mb-1">{member.name}</h3>
-                  <p className="text-xs font-semibold text-saffron uppercase tracking-wide mb-3">
+                  <p className="text-xs font-bold text-saffron uppercase tracking-wider mb-3">
                     {member.designation}
                   </p>
 
-                  <div className="w-10 h-0.5 rounded-full bg-gray-200 mb-3" />
+                  <div className="w-12 h-0.5 rounded-full bg-gradient-to-r from-saffron to-orange-300 mb-3" />
 
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Dedicated to the mission of rural empowerment and community development.
@@ -423,16 +447,21 @@ function Achievements() {
             {achievements.map((ach, i) => (
               <div
                 key={ach.id}
-                className="flex items-start gap-4 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-colors group"
+                className="flex items-start gap-4 rounded-2xl p-5 border
+                           hover:border-saffron/30 transition-all duration-300 group"
+                style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', borderColor: 'rgba(255,255,255,0.12)' }}
               >
-                <div className="w-12 h-12 rounded-xl bg-saffron/20 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                {/* Icon with glow */}
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0
+                             group-hover:scale-110 group-hover:shadow-lg transition-all duration-300"
+                  style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.3), rgba(249,115,22,0.1))' }}
+                >
                   🏆
                 </div>
                 <div className="self-center">
                   <p className="text-white font-bold text-sm sm:text-base mb-1">{ach.title}</p>
-                  <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
-                    {ach.description}
-                  </p>
+                  <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">{ach.description}</p>
                 </div>
               </div>
             ))}

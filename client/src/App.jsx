@@ -13,7 +13,7 @@ import ReadIndia       from './pages/ReadIndia';
 import SafetyCollege   from './pages/SafetyCollege';
 import SocialActivities from './pages/SocialActivities';
 import Ambulance       from './pages/Ambulance';
-import ContactNews     from './pages/Contact';
+import ContactNews     from './pages/ContactNews';
 
 // Admin
 import AdminLogin     from './pages/admin/Login';

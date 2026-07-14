@@ -243,7 +243,8 @@ export default function PreSchool() {
                 },
               ].map(({ icon, title, body }) => (
                 <div key={title} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md"
+                       style={{ background: 'linear-gradient(135deg, #fffbeb, #fef3c7)', border: '1px solid #fde68a' }}>
                     {icon}
                   </div>
                   <div>
@@ -295,16 +296,20 @@ export default function PreSchool() {
             {AGE_GROUPS.map(({ range, label, emoji, color, dot, points }) => (
               <div
                 key={label}
-                className={`rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200`}
+                className={`relative overflow-hidden rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4
+                            hover:shadow-2xl hover:-translate-y-2 transition-all duration-350 group cursor-default`}
               >
-                <div className="text-4xl">{emoji}</div>
+                {/* Subtle top decoration */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="text-4xl group-hover:scale-110 transition-transform duration-300">{emoji}</div>
                 <div>
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">{range}</p>
-                  <h3 className="font-extrabold text-navy text-lg">{label}</h3>
+                  <h3 className="font-extrabold text-navy text-lg leading-tight">{label}</h3>
                 </div>
-                <ul className="space-y-2 flex-1">
+                <ul className="space-y-2.5 flex-1">
                   {points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2 text-xs text-gray-600">
+                    <li key={pt} className="flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
                       <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${dot} shrink-0`} />
                       {pt}
                     </li>
@@ -343,11 +348,13 @@ export default function PreSchool() {
             {CURRICULUM.map(({ emoji, label, desc }) => (
               <div
                 key={label}
-                className="flex flex-col gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-5 hover:shadow-md hover:border-saffron transition-all duration-200 group"
+                className="flex flex-col gap-3 bg-white border border-slate-100 rounded-2xl p-5
+                           hover:shadow-xl hover:border-saffron/40 hover:-translate-y-1
+                           transition-all duration-300 group cursor-default"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform inline-block">{emoji}</span>
+                <span className="text-3xl group-hover:scale-110 transition-transform duration-300 inline-block w-fit">{emoji}</span>
                 <div>
-                  <h4 className="font-bold text-navy text-sm mb-1">{label}</h4>
+                  <h4 className="font-extrabold text-navy text-sm mb-1">{label}</h4>
                   <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -371,17 +378,21 @@ export default function PreSchool() {
             {ADMISSION_STEPS.map(({ step, title, desc }) => (
               <div
                 key={step}
-                className="relative bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:shadow-md hover:border-saffron transition-all duration-200 group overflow-hidden"
+                className="relative bg-white border border-gray-100 rounded-2xl shadow-sm p-6
+                           hover:shadow-xl hover:border-saffron/30 hover:-translate-y-1
+                           transition-all duration-300 group overflow-hidden"
               >
-                {/* Big number watermark */}
-                <span className="absolute -top-3 -right-3 text-8xl font-extrabold text-orange-50 select-none group-hover:text-orange-100 transition-colors">
+                {/* Big number watermark with better color & sizing */}
+                <span className="absolute -top-6 -right-6 text-9xl font-black text-orange-50/50 select-none
+                                 group-hover:text-orange-100/60 group-hover:scale-105 transition-all duration-350">
                   {step}
                 </span>
-                <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-white font-extrabold text-sm mb-4 shadow">
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm mb-4 shadow-md"
+                       style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
                     {step}
                   </div>
-                  <h3 className="font-bold text-navy mb-2">{title}</h3>
+                  <h3 className="font-bold text-navy text-base mb-2">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -389,15 +400,26 @@ export default function PreSchool() {
           </div>
 
           {/* Download Fee Structure */}
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-md p-8 text-center max-w-xl mx-auto mt-10">
-            <h3 className="text-navy font-bold text-xl mb-3">Fee Structure</h3>
-            <p className="text-gray-500 text-sm mb-6">
-              Download our complete fee structure for the current academic year, including details about instalment options and scholarships for BPL families.
-            </p>
-            <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold transition-all shadow shadow-orange-500/30 hover:-translate-y-0.5">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              Download Fee Structure
-            </a>
+          <div className="bg-white border border-slate-100 rounded-2xl p-8 text-center max-w-xl mx-auto mt-10
+                          shadow-2xl shadow-navy/5 relative overflow-hidden group">
+            {/* Background design accents */}
+            <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-orange-50 group-hover:scale-110 transition-transform duration-300" />
+            
+            <div className="relative z-10">
+              <h3 className="text-navy font-extrabold text-xl mb-3">Fee Structure</h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
+                Download our complete fee structure for the current academic year, including details about instalment options and scholarships for BPL families.
+              </p>
+              <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full
+                                    bg-gradient-to-r from-saffron to-orange-500 hover:from-orange-500 hover:to-saffron
+                                    text-white font-bold transition-all duration-200 shadow-lg shadow-orange-500/25
+                                    hover:-translate-y-0.5">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Download Fee Structure
+              </a>
+            </div>
           </div>
         </div>
       </section>

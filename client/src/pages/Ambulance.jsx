@@ -282,18 +282,20 @@ export default function Ambulance() {
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {SERVICES.map(({ emoji, title, desc }) => (
                 <div
                   key={title}
-                  className="flex items-start gap-4 bg-white rounded-xl border-l-4 border-[#e11d48] shadow-sm hover:shadow-md transition-shadow p-5"
+                  className="flex items-start gap-4 bg-white rounded-2xl border border-slate-100
+                             hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350 p-6 group cursor-default"
                 >
                   {/* Icon circle */}
-                  <div className="w-12 h-12 rounded-full bg-[#e11d48] flex items-center justify-center text-xl shrink-0 shadow">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                       style={{ background: 'linear-gradient(135deg, #ffe4e6, #fecdd3)', border: '1px solid #fca5a5' }}>
                     {emoji}
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-[#1a3c5e] text-base mb-1">{title}</h3>
+                    <h3 className="font-extrabold text-[#1a3c5e] text-base mb-1.5 leading-tight">{title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                   </div>
                 </div>
@@ -303,15 +305,17 @@ export default function Ambulance() {
         </section>
 
         {/* ── 4. TRUST BADGES ROW ───────────────────────────────────────────── */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50" aria-label="Trust indicators">
+        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-gray-50" aria-label="Trust indicators">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-5">
               {TRUST_BADGES.map(({ emoji, label }) => (
-                <div key={label} className="flex flex-col items-center gap-2 text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#1a3c5e] flex items-center justify-center text-2xl shadow-md">
+                <div key={label} className="flex flex-col items-center gap-3 text-center group cursor-default">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl shadow-lg
+                                  group-hover:scale-110 hover:shadow-xl transition-all duration-300"
+                       style={{ background: 'linear-gradient(135deg, #1a3c5e, #2d5f8a)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     {emoji}
                   </div>
-                  <p className="text-[#1a3c5e] font-bold text-xs sm:text-sm leading-tight">{label}</p>
+                  <p className="text-[#1a3c5e] font-extrabold text-xs sm:text-sm leading-tight px-1">{label}</p>
                 </div>
               ))}
             </div>
@@ -361,7 +365,7 @@ export default function Ambulance() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Coverage details */}
-              <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7">
                 <dl className="space-y-4">
                   {[
                     { icon: '📍', dt: 'Base Location',     dd: 'Kingaon' },
@@ -371,19 +375,19 @@ export default function Ambulance() {
                     { icon: '📞', dt: 'Emergency Number',  dd: '9272418496 (24×7)' },
                   ].map(({ icon, dt, dd }) => (
                     <div key={dt} className="flex items-center gap-3">
-                      <span className="text-xl w-7 shrink-0">{icon}</span>
+                      <span className="text-xl w-7 shrink-0 text-center">{icon}</span>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-xs font-bold text-gray-400 uppercase tracking-wide w-28 shrink-0">{dt}:</span>
-                        <span className="font-semibold text-[#1a3c5e]">{dd}</span>
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest w-28 shrink-0">{dt}</span>
+                        <span className="font-extrabold text-[#1a3c5e] text-sm sm:text-base">{dd}</span>
                       </div>
                     </div>
                   ))}
                 </dl>
 
                 {/* Nearby areas */}
-                <div className="mt-5 pt-5 border-t border-gray-100">
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-3">
-                    Nearby Areas Covered {/* TODO: Replace with real village coverage list */}
+                <div className="mt-6 pt-6 border-t border-slate-100">
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3.5">
+                    Nearby Areas Covered
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {[
@@ -391,12 +395,16 @@ export default function Ambulance() {
                       '[Village/Town 4]', '[Village/Town 5]', '[Village/Town 6]',
                       '[Village/Town 7]', '[Village/Town 8]',
                     ].map((v) => (
-                      <span key={v} className="px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-[#1a3c5e] text-xs font-medium">
+                      <span
+                        key={v}
+                        className="px-3.5 py-1.5 rounded-xl border border-blue-100/60 text-[#1a3c5e] text-xs font-bold
+                                   transition-colors hover:bg-blue-50"
+                        style={{ background: 'rgba(239, 246, 255, 0.5)' }}
+                      >
                         {v}
                       </span>
                     ))}
                   </div>
-                  {/* TODO: Replace with real village coverage list */}
                 </div>
               </div>
 
@@ -458,22 +466,27 @@ export default function Ambulance() {
                   cta: false,
                 },
               ].map(({ step, icon, title, desc, cta }) => (
-                <div key={step} className="relative flex flex-col items-center text-center gap-4">
-                  {/* Step number circle */}
-                  <div className="relative w-20 h-20 rounded-full bg-[#e11d48] flex flex-col items-center justify-center text-white shadow-lg shrink-0 z-10">
-                    <span className="text-xs font-bold opacity-70">STEP</span>
-                    <span className="text-3xl font-extrabold leading-none">{step}</span>
+                <div
+                  key={step}
+                  className="relative flex flex-col items-center text-center gap-4 bg-white border border-slate-100 p-6 rounded-2xl
+                             hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350 group cursor-default"
+                >
+                  {/* Step number circle with gradient */}
+                  <div className="relative w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-lg shrink-0 z-10"
+                       style={{ background: 'linear-gradient(135deg, #e11d48, #be123c)' }}>
+                    <span className="text-[9px] font-black opacity-80 tracking-widest uppercase">STEP</span>
+                    <span className="text-3xl font-black leading-none">{step}</span>
                   </div>
-                  <span className="text-3xl">{icon}</span>
+                  <span className="text-3xl group-hover:scale-115 transition-transform duration-300 inline-block">{icon}</span>
                   <div>
-                    <h3 className="font-extrabold text-[#1a3c5e] text-base uppercase tracking-wide mb-2">{title}</h3>
+                    <h3 className="font-extrabold text-[#1a3c5e] text-sm uppercase tracking-wider mb-2">{title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                   </div>
                   {cta && (
                     <a
                       href="tel:+919272418496"
                       aria-label="Call Shivshakti Ambulance 9272418496"
-                      className="mt-1 inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#e11d48] text-white font-bold text-sm hover:bg-rose-700 transition-colors shadow"
+                      className="mt-1.5 inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-[#e11d48] text-white font-extrabold text-xs hover:bg-rose-700 transition-colors shadow-lg shadow-rose-500/20"
                     >
                       📞 9272418496
                     </a>
@@ -498,26 +511,26 @@ export default function Ambulance() {
               {FLEET.map(({ icon, title, subtitle, features, status, statusColor, base }) => (
                 <div
                   key={title}
-                  className="rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                  className="rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-350 overflow-hidden cursor-default group"
                 >
                   <div className="bg-[#1a3c5e] px-6 py-5 flex items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <span className="text-4xl" role="img" aria-label="Ambulance">{icon}</span>
+                      <span className="text-4xl group-hover:scale-110 transition-transform duration-300" role="img" aria-label="Ambulance">{icon}</span>
                       <div>
-                        <h3 className="text-white font-extrabold text-base">{title}</h3>
-                        <p className="text-blue-300 text-xs">{subtitle}</p>
+                        <h3 className="text-white font-extrabold text-base leading-tight">{title}</h3>
+                        <p className="text-blue-300 text-xs mt-0.5">{subtitle}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1.5 shrink-0 bg-white/10 rounded-full px-3 py-1">
+                    <div className="flex items-center gap-1.5 shrink-0 bg-white/10 border border-white/15 rounded-full px-3 py-1">
                       <span className={`w-2 h-2 rounded-full ${statusColor}`} />
-                      <span className="text-white text-xs font-semibold">{status}</span>
+                      <span className="text-white text-[10px] font-bold uppercase tracking-wider">{status}</span>
                     </div>
                   </div>
 
-                  <div className="p-5">
-                    <ul className="space-y-2">
+                  <div className="p-6">
+                    <ul className="space-y-2.5">
                       {features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600 leading-relaxed font-medium">
                           <svg className="w-4 h-4 text-[#e11d48] mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                           </svg>
@@ -525,7 +538,7 @@ export default function Ambulance() {
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-4 text-xs text-gray-400 flex items-center gap-1">
+                    <p className="mt-4 pt-4 border-t border-slate-50 text-xs text-gray-400 flex items-center gap-1.5 font-semibold">
                       <span>📍</span> {base}
                     </p>
                   </div>
@@ -545,29 +558,28 @@ export default function Ambulance() {
               </h2>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-4 mb-6">
-              {/* TODO: Replace with real partner hospital name */}
+            <div className="grid sm:grid-cols-3 gap-5 mb-6">
               {[
                 { name: '[Hospital Name 1]', location: '[City/Town], Latur District', phone: '[Placeholder]', hours: 'Emergency: 24×7' },
                 { name: '[Hospital Name 2]', location: '[City/Town], Latur District', phone: '[Placeholder]', hours: 'Emergency: 24×7' },
                 { name: '[Hospital Name 3]', location: 'Latur City',                   phone: '[Placeholder]', hours: 'Emergency: 24×7' },
               ].map(({ name, location, phone, hours }) => (
-                <div key={name} className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 hover:shadow-md transition-shadow">
+                <div key={name} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300 group cursor-default">
                   <p className="font-extrabold text-[#1a3c5e] text-base mb-3 flex items-center gap-2">
-                    <span>🏥</span> {name}
+                    <span className="group-hover:scale-115 transition-transform duration-300 inline-block">🏥</span> {name}
                   </p>
-                  <dl className="space-y-1.5 text-sm">
-                    <div className="flex items-center gap-2">
+                  <dl className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2 text-gray-600 leading-snug">
                       <span className="text-gray-400">📍</span>
-                      <span className="text-gray-600">{location}</span>
+                      <span>{location}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 text-gray-600 leading-none">
                       <span className="text-gray-400">📞</span>
-                      <span className="text-gray-600">{phone}</span>
+                      <span>{phone}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 text-gray-600 leading-none">
                       <span className="text-gray-400">🕐</span>
-                      <span className="text-gray-600">{hours}</span>
+                      <span>{hours}</span>
                     </div>
                   </dl>
                 </div>
