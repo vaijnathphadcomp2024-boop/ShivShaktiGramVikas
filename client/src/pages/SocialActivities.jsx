@@ -333,8 +333,8 @@ export default function SocialActivities() {
           {/* Saints footer strip */}
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
-              { name: 'Sant Dnyaneshwar Maharaj', year: '1275–1296' },
-              { name: 'Sant Namdev Maharaj',      year: '1270–1350' },
+              { name: 'ह.भ.प मुंजाजी महाराज चाटे ', year: '+91 8600264717' },
+              { name: 'मृदंग सम्राट पंडित महाराज दहिफळे',year: '+91 9823309807' },
               { name: 'Sant Eknath Maharaj',       year: '1533–1599' },
               { name: 'Sant Tukaram Maharaj',      year: '1608–1650' },
             ].map(({ name, year }) => (
