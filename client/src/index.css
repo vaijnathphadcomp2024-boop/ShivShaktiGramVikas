@@ -164,4 +164,13 @@
       transform: translateY(-12px) scale(1.02);
     }
   }
+
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
