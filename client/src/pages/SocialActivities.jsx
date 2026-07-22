@@ -33,7 +33,7 @@ const DEFAULT_SAPTAH = [
 const DEFAULT_PROGRAMS = [
   { emoji: '??', title: 'Free Health Camp', desc: 'Periodic free health check-up camps organized in villages.', color: 'from-blue-50 to-sky-100 border-blue-200', dot: 'bg-navy' },
   { emoji: '??', title: 'Water Conservation', desc: 'Community awareness drives on rainwater harvesting.', color: 'from-cyan-50 to-teal-100 border-teal-200', dot: 'bg-teal-500' },
-  { emoji: '?????', title: 'Women Awareness', desc: 'Programmes promoting girl child education.', color: 'from-rose-50 to-pink-100 border-rose-200', dot: 'bg-magenta' },
+  { emoji: '👩', title: 'Women Empowerment', desc: 'Programmes promoting girl child education, skill development, and financial independence for women.', color: 'from-rose-50 to-pink-100 border-rose-200', dot: 'bg-magenta' },
 ];
 
 const DEFAULT_STATS = [

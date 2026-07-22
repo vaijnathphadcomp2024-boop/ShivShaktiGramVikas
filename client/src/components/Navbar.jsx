@@ -2,19 +2,19 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { to: '/',                   label: 'Home' },
-  { to: '/about',              label: 'About' },
-  { to: '/pre-school',         label: 'Pre School' },
-  { to: '/read-india',         label: 'Read India' },
-  { to: '/safety-college',     label: 'Safety College' },
-  { to: '/social-activities',  label: 'Social Activities' },
-  { to: '/ambulance',          label: 'Ambulance' },
-  { to: '/contact-news',       label: 'Contact & News' },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/pre-school', label: 'Pre School' },
+  { to: '/read-india', label: 'READ India Center' },
+  { to: '/safety-college', label: 'Industrial Safety College' },
+  { to: '/social-activities', label: 'Social Activities' },
+  { to: '/ambulance', label: 'Ambulance' },
+  { to: '/contact-news', label: 'Contact & News' },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   // Close mobile menu on route change
@@ -29,9 +29,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-navy text-white transition-shadow duration-300 ${
-        scrolled ? 'shadow-xl' : ''
-      }`}
+      className={`sticky top-0 z-50 bg-navy text-white transition-shadow duration-300 ${scrolled ? 'shadow-xl' : ''
+        }`}
     >
       {/* Top bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +45,7 @@ export default function Navbar() {
             />
             <div className="leading-tight hidden sm:block">
               <p className="font-bold text-sm sm:text-base text-white leading-none">
-                  Shivshakti GramVikas
+                Shivshakti GramVikas
               </p>
               <p className="text-xs text-orange-200 leading-none">Pratishthan</p>
             </div>
@@ -60,10 +59,9 @@ export default function Navbar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 ${
-                    isActive
-                      ? 'bg-forest text-white'
-                      : 'text-blue-100 hover:bg-white/10 hover:text-white'
+                  `px-3 py-1.5 rounded text-sm font-medium transition-colors duration-150 ${isActive
+                    ? 'bg-forest text-white'
+                    : 'text-blue-100 hover:bg-white/10 hover:text-white'
                   }`
                 }
               >
@@ -94,9 +92,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <nav className="bg-navy/95 backdrop-blur px-4 pt-2 pb-4 flex flex-col gap-1 border-t border-white/10">
           {navLinks.map(({ to, label }) => (
@@ -105,8 +102,7 @@ export default function Navbar() {
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `px-4 py-2.5 rounded text-sm font-medium transition-colors ${
-                  isActive ? 'bg-forest text-white' : 'text-blue-100 hover:bg-white/10'
+                `px-4 py-2.5 rounded text-sm font-medium transition-colors ${isActive ? 'bg-forest text-white' : 'text-blue-100 hover:bg-white/10'
                 }`
               }
             >

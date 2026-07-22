@@ -8,7 +8,7 @@ import { collection, getDocs } from 'firebase/firestore';
 // ─── Dummy notices (replace with API data later) ─────────────────────────────
 const NOTICES = [
   'सुरक्षा महाविद्यालय प्रवेश सुरू २०२६-२७ ⬥',
-  'वृक्षारोपण उपक्रम — किनगाव, ५ जुलै ⬥',
+  'वृक्षारोपण उपक्रम — कोळवाडी, ५ जुलै ⬥',
   'अखंड हरिनाम सप्ताह लवकरच ⬥',
   'रुग्णवाहिका सेवा २४×७ — ९२७२४१८४९६ ⬥',
   'रीड इंडिया केंद्र नवीन बॅच सुरू',
@@ -326,7 +326,7 @@ export default function Home() {
                   safe livelihoods.
                 </p>
                 <p className="text-blue-200 text-sm mb-8">
-                  📍 किनगाव, ता. अहमदपूर, जि. लातूर, महाराष्ट्र
+                  📍 कोळवाडी, ता. अहमदपूर, जि. लातूर, महाराष्ट्र
                 </p>
                 <Link
                   to="/about"
@@ -432,9 +432,9 @@ export default function Home() {
       <section className="bg-[#e11d48] text-white py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-2 items-center">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-3">🚑 रुग्णवाहिका सेवा — किनगाव</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-3">🚑 रुग्णवाहिका सेवा — कोळवाडी</p>
             <p className="text-3xl sm:text-4xl font-bold mb-3">हर पल आपकी सेवा में, हर सफर सुरक्षित!</p>
-            <p className="text-sm text-white/80">Ambulance · Kingaon · 50km Coverage · 24×7</p>
+            <p className="text-sm text-white/80">Ambulance · Kolwadi · 50km Coverage · 24×7</p>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-4">
             <a href="tel:+919272418496" className="text-[#f9c74f] font-bold text-3xl sm:text-4xl underline decoration-white/40">9272418496</a>
@@ -472,7 +472,7 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-center">
-                <p className="text-white font-bold">📍 किनगाव, ता. अहमदपूर, जि. लातूर - ४१३५२३, महाराष्ट्र / Kingaon - 413523</p>
+                <p className="text-white font-bold">📍 कोळवाडी, ता. अहमदपूर, जि. लातूर - ४१३५२३, महाराष्ट्र / Kolwadi - 413523</p>
               </div>
             </div>
 

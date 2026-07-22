@@ -36,8 +36,8 @@ const DEFAULT_NOTICES = [
     category: 'Event',
     categoryColor: 'bg-forest text-white',
     date: '5 July 2026',
-    title: 'Tree Plantation Drive — Kingaon',
-    desc: 'Join us for our annual Tree Plantation Drive at Kingaon village on 5 July 2026. All volunteers and community members are welcome. Saplings will be provided.',
+    title: 'Tree Plantation Drive — Kolwadi',
+    desc: 'Join us for our annual Tree Plantation Drive at Kolwadi village on 5 July 2026. All volunteers and community members are welcome. Saplings will be provided.',
   },
   {
     category: 'General',
@@ -260,6 +260,7 @@ export default function Contact() {
   const [bankDetails, setBankDetails] = useState({
     accountName: '', accountNumber: '', ifscCode: '', bankName: '', branch: '', accountType: '', upiId: '', qrUrl: ''
   });
+  const [bankLoading, setBankLoading] = useState(true);
   const [notices, setNotices] = useState(DEFAULT_NOTICES);
 
   useEffect(() => {
@@ -270,7 +271,7 @@ export default function Contact() {
         if (docSnap.exists()) {
           setBankDetails(docSnap.data());
         }
-      } catch (e) { console.error(e); }
+      } catch (e) { console.error(e); } finally { setBankLoading(false); }
     };
 
     const fetchNotices = async () => {
@@ -375,7 +376,7 @@ export default function Contact() {
                   <p className="flex items-start gap-2 text-sm text-gray-700">
                     <span className="text-navy mt-0.5">📍</span>
                     <span><strong className="text-navy">Shivshakti Gram Vikas Pratishthan (S.S.G.V.P.)</strong><br />
-                    Kingaon, Tal: Ahmadpur,<br />
+                    Kolwadi, Tal: Ahmadpur,<br />
                     Dist: Latur - 413523, Maharashtra</span>
                   </p>
                   <div className="h-px bg-gray-100" />
@@ -467,22 +468,22 @@ export default function Contact() {
               <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-md">
                 {/* TODO: Replace with real embed URL */}
                 <iframe
-                  title="Shivshakti GramVikas Pratishthan — Kingaon, Ahmadpur, Latur - 413523"
-                  src="https://maps.google.com/maps?q=Kingaon,Ahmadpur,Latur,Maharashtra,413523&output=embed"
+                  title="Shivshakti GramVikas Pratishthan — Kolwadi, Ahmadpur, Latur - 413523"
+                  src="https://maps.google.com/maps?q=Kolwadi,Ahmadpur,Latur,Maharashtra,413523&output=embed"
                   width="100%"
                   height="320"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="border-0 w-full"
-                  aria-label="Map showing Kingaon, Ahmadpur, Latur - 413523, Maharashtra"
+                  aria-label="Map showing Kolwadi, Ahmadpur, Latur - 413523, Maharashtra"
                 />
                 {/* TODO: Replace with real embed URL from Google Maps */}
               </div>
               <p className="text-xs text-center text-gray-400 italic">
-                Kingaon, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra
+                Kolwadi, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra
               </p>
               <a
-                href="https://maps.google.com/?q=Kingaon,Ahmadpur,Latur,Maharashtra,413523"
+                href="https://maps.google.com/?q=Kolwadi,Ahmadpur,Latur,Maharashtra,413523"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="ct-directions-btn"
@@ -594,31 +595,41 @@ export default function Contact() {
                   <span className="w-8 h-8 rounded-lg bg-navy/10 flex items-center justify-center text-navy">🏦</span>
                   Bank Transfer Details
                 </h3>
-                {/* TODO: Add real bank details */}
-                <dl className="space-y-3 text-sm">
-                  {[
-                    { dt: 'Account Name',   dd: '[Account Name — Placeholder]' },
-                    { dt: 'Account No.',    dd: '[XXXXXXXXXXXXXXXXXX — Placeholder]', copy: true },
-                    { dt: 'IFSC Code',      dd: '[IFSC — Placeholder]',               copy: true },
-                    { dt: 'Bank Name',      dd: '[Bank Name — Placeholder]' },
-                    { dt: 'Branch',         dd: 'Ahmadpur' },
-                    { dt: 'Account Type',   dd: 'Current Account' },
-                  ].map(({ dt, dd, copy }) => (
-                    <div key={dt} className="flex items-start justify-between gap-2 py-2 border-b border-gray-100 last:border-0">
-                      <div>
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide">{dt}</p>
-                        <p className="font-semibold text-navy mt-0.5">{dd}</p>
+
+                {bankLoading ? (
+                  /* Loading skeleton */
+                  <div className="space-y-3 animate-pulse">
+                    {[1,2,3,4,5,6].map(i => (
+                      <div key={i} className="py-2 border-b border-gray-100">
+                        <div className="h-2.5 w-24 bg-gray-200 rounded mb-1.5" />
+                        <div className="h-4 w-40 bg-gray-300 rounded" />
                       </div>
-                      {copy && (
-                        <CopyButton text={dd} label={dt === 'Account No.' ? 'Acc No.' : 'IFSC'} />
-                      )}
-                    </div>
-                  ))}
-                </dl>
-                {/* TODO: Add real bank details, account number, IFSC */}
-                <p className="mt-4 text-xs text-gray-400 italic">
-                  * Placeholder bank details — update with real information before going live.
-                </p>
+                    ))}
+                  </div>
+                ) : (
+                  <dl className="space-y-1 text-sm">
+                    {[
+                      { dt: 'Account Name',  dd: bankDetails.accountName  || '—' },
+                      { dt: 'Account No.',   dd: bankDetails.accountNumber || '—', copy: !!bankDetails.accountNumber },
+                      { dt: 'IFSC Code',     dd: bankDetails.ifscCode      || '—', copy: !!bankDetails.ifscCode },
+                      { dt: 'Bank Name',     dd: bankDetails.bankName      || '—' },
+                      { dt: 'Branch',        dd: bankDetails.branch        || '—' },
+                      { dt: 'Account Type',  dd: bankDetails.accountType   || 'Current Account' },
+                    ].map(({ dt, dd, copy }) => (
+                      <div key={dt} className="flex items-start justify-between gap-2 py-2.5 border-b border-gray-100 last:border-0">
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-0.5">{dt}</p>
+                          <p className={`font-semibold mt-0.5 break-all leading-snug ${
+                            dd === '—' ? 'text-gray-300 italic' : 'text-navy'
+                          }`}>{dd}</p>
+                        </div>
+                        {copy && (
+                          <CopyButton text={dd} label={dt === 'Account No.' ? 'Acc No.' : 'IFSC'} />
+                        )}
+                      </div>
+                    ))}
+                  </dl>
+                )}
               </div>
 
               {/* UPI / QR card */}
@@ -628,23 +639,37 @@ export default function Contact() {
                   UPI / QR Code Payment
                 </h3>
 
-                {/* QR placeholder */}
-                {/* TODO: Add real QR code image */}
-                <div className="mx-auto w-48 h-48 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-2">
-                  <span className="text-4xl text-gray-300" aria-label="QR code placeholder">▪️</span>
-                  <p className="text-xs text-gray-400 text-center leading-tight px-2">
-                    [UPI QR Code Image Here]<br />
-                    Replace with actual QR
-                  </p>
-                </div>
+                {/* QR Code image — real or placeholder */}
+                {bankDetails.qrUrl ? (
+                  <div className="mx-auto">
+                    <img
+                      src={bankDetails.qrUrl}
+                      alt="UPI QR Code — Shivshakti GramVikas Pratishthan"
+                      className="w-48 h-48 object-contain rounded-xl border border-gray-200 shadow-sm"
+                    />
+                    <p className="text-xs text-center text-gray-400 mt-1">Scan to pay via any UPI app</p>
+                  </div>
+                ) : (
+                  <div className="mx-auto w-48 h-48 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-2">
+                    <span className="text-4xl text-gray-300" aria-label="QR code placeholder">▪️</span>
+                    <p className="text-xs text-gray-400 text-center leading-tight px-2">
+                      QR code will appear here<br />once uploaded by admin
+                    </p>
+                  </div>
+                )}
 
                 {/* UPI ID */}
                 <div className="bg-gray-50 rounded-xl p-4">
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">UPI ID</p>
                   <div className="flex items-center justify-between gap-2">
-                    {/* TODO: Add real bank details, UPI ID, QR code image */}
-                    <p className="font-bold text-navy text-sm">[upiid@bank — Placeholder]</p>
-                    <CopyButton text="[upiid@bank — Placeholder]" label="UPI ID" />
+                    {bankDetails.upiId ? (
+                      <>
+                        <p className="font-bold text-navy text-sm break-all">{bankDetails.upiId}</p>
+                        <CopyButton text={bankDetails.upiId} label="UPI ID" />
+                      </>
+                    ) : (
+                      <p className="text-gray-300 italic text-sm">Not set yet</p>
+                    )}
                   </div>
                 </div>
 

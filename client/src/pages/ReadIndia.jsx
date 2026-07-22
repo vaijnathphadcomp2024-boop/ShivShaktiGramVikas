@@ -117,9 +117,9 @@ const CENTERS = [
 
 const TESTIMONIALS = [
   {
-    quote: "Before joining the Read India Center, I could barely sign my name. After completing the Sewing Machine and Aari work course, I now run my own tailoring shop in Kingaon and earn independently.",
+    quote: "Before joining the Read India Center, I could barely sign my name. After completing the Sewing Machine and Aari work course, I now run my own tailoring shop in Kolwadi and earn independently.",
     name: 'Smt. Sunita Ramesh Pawar',
-    role: 'Sewing & Aari Work Graduate, Kingaon',
+    role: 'Sewing & Aari Work Graduate, Kolwadi',
     emoji: '👩',
     accent: 'border-magenta',
     tag: "Women's Empowerment",
@@ -128,14 +128,14 @@ const TESTIMONIALS = [
   {
     quote: "My daughter attended the Early Childhood Development program and uses the Library daily. The dedicated teachers and peaceful environment have helped her excel in studies.",
     name: 'Shri. Vishnu Mahadev Jadhav',
-    role: 'Parent & Community Member, Kingaon',
+    role: 'Parent & Community Member, Kolwadi',
     emoji: '👨',
     accent: 'border-cyan',
     tag: 'Library & ECD',
     tagColor: 'bg-cyan text-white',
   },
   {
-    quote: "Learning the Beauty Parlour Course at the center gave me the confidence and skills to start my own salon services. Shivshakti Pratishthan made this possible for rural women like me.",
+    quote: "Learning the Beauty Parlour Course at the center gave me the confidence and skills to start my own salon services. Shivshakti GramVikas Pratishthan made this possible for rural women like me.",
     name: 'Kumari Pooja Vilas Shinde',
     role: 'Beauty Parlour Course Graduate, Ahmadpur',
     emoji: '👩‍💼',
@@ -275,7 +275,7 @@ export default function ReadIndia() {
                 for toddlers to vocational training for women seeking independent livelihoods.
               </p>
               <p>
-                Since [Year], the center has reached <strong className="text-cyan">X+ people across X villages</strong>,
+                Since June 2021, the center has reached <strong className="text-cyan">1000+ women and children across 15+ villages</strong>,
                 creating a ripple effect of empowerment that extends from individual learners to entire families
                 and communities.
               </p>
@@ -495,9 +495,8 @@ export default function ReadIndia() {
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-400 mt-4">
-            * All names and quotes are placeholders — replace with real beneficiary stories.
-          </p>
+
+
         </div>
       </section>
 

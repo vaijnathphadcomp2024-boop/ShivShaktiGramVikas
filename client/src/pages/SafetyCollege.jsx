@@ -199,7 +199,7 @@ export default function SafetyCollege() {
                     { dt: 'Approval Year',         dd: '2026' },
                     { dt: 'Highlights',            dd: 'Industry Tie-ups & Practical Training' },
                     { dt: 'Placement',             dd: 'Dedicated Industry Placement Support' },
-                    { dt: 'Address',               dd: 'Kingaon, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra' },
+                    { dt: 'Address',               dd: 'Kolwadi, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra' },
                   ].map(({ dt, dd }) => (
                     <div key={dt} className="flex items-start gap-2">
                       <span className="text-rose-300 font-semibold shrink-0 w-36">{dt}:</span>

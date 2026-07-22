@@ -89,7 +89,7 @@ const FLEET = [
     ],
     status: 'Active',
     statusColor: 'bg-green-500',
-    base: 'Kingaon Base',
+    base: 'Kolwadi Base',
   },
   {
     icon: '🏥',
@@ -104,7 +104,7 @@ const FLEET = [
     ],
     status: 'On Request',
     statusColor: 'bg-yellow-400',
-    base: 'Kingaon Base',
+    base: 'Kolwadi Base',
   },
 ];
 
@@ -206,7 +206,7 @@ export default function Ambulance() {
               Shivshakti Ambulance Service
             </h1>
             <p className="text-[#e11d48] font-bold text-sm sm:text-lg mb-3">
-              Kingaon &nbsp;|&nbsp; Tal: Ahmadpur &nbsp;|&nbsp; Dist: Latur
+              Kolwadi &nbsp;|&nbsp; Tal: Ahmadpur &nbsp;|&nbsp; Dist: Latur
             </p>
 
             {/* Emergency number */}
@@ -234,7 +234,7 @@ export default function Ambulance() {
 
             {/* Coverage badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-700 text-white font-semibold text-xs shadow">
-              📍 Covering 100 km radius from Kingaon, Latur
+              📍 Covering 100 km radius from Kolwadi, Latur
             </div>
           </div>
         </section>
@@ -332,10 +332,10 @@ export default function Ambulance() {
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                 <dl className="space-y-4">
                   {[
-                    { icon: '📍', dt: 'Base Location',     dd: 'Kingaon' },
+                    { icon: '📍', dt: 'Base Location',     dd: 'Kolwadi' },
                     { icon: '🏛️', dt: 'Taluka',            dd: 'Ahmadpur' },
                     { icon: '🗺️', dt: 'District',          dd: 'Latur, Maharashtra' },
-                    { icon: '🔵', dt: 'Coverage Radius',   dd: '100 km from Kingaon' },
+                    { icon: '🔵', dt: 'Coverage Radius',   dd: '100 km from Kolwadi' },
                     { icon: '📞', dt: 'Emergency Number',  dd: '9272418496 (24×7)' },
                   ].map(({ icon, dt, dd }) => (
                     <div key={dt} className="flex items-center gap-3">
@@ -372,12 +372,12 @@ export default function Ambulance() {
               {/* REPLACE THIS WITH GOOGLE MAPS IFRAME FOR KINGAON */}
               <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 flex flex-col items-center justify-center gap-3 p-8 min-h-[280px] text-center">
                 <span className="text-5xl" aria-hidden="true">📍</span>
-                <p className="font-bold text-[#1a3c5e] text-base">Kingaon, Tal: Ahmadpur, Dist: Latur</p>
+                <p className="font-bold text-[#1a3c5e] text-base">Kolwadi, Tal: Ahmadpur, Dist: Latur</p>
                 <p className="text-gray-400 text-sm">Maharashtra — 413 706</p>
                 <p className="text-xs text-gray-400 italic mt-2">[Google Maps embed will appear here]</p>
                 {/* TODO: Replace with Google Maps iframe for Kingaon
                 <iframe
-                  title="Shivshakti Ambulance Base — Kingaon"
+                  title="Shivshakti Ambulance Base — Kolwadi"
                   src="https://www.google.com/maps/embed?pb=..."
                   width="100%" height="300" loading="lazy"
                   allowFullScreen referrerPolicy="no-referrer-when-downgrade"
@@ -602,12 +602,12 @@ export default function Ambulance() {
           <div className="max-w-4xl mx-auto flex items-center justify-center gap-4">
             <div className="flex-1 h-px bg-[#e11d48]/60" aria-hidden="true" />
             <p className="text-white font-extrabold text-sm sm:text-base uppercase tracking-widest text-center whitespace-nowrap">
-              SHIVSHAKTI AMBULANCE SERVICE, KINGAON
+              SHIVSHAKTI AMBULANCE SERVICE, KOLWADI
             </p>
             <div className="flex-1 h-px bg-[#e11d48]/60" aria-hidden="true" />
           </div>
           <p className="text-center text-blue-300 text-xs mt-2">
-            Kingaon &nbsp;|&nbsp; Tal: Ahmadpur &nbsp;|&nbsp; Dist: Latur, Maharashtra &nbsp;|&nbsp;
+            Kolwadi &nbsp;|&nbsp; Tal: Ahmadpur &nbsp;|&nbsp; Dist: Latur, Maharashtra &nbsp;|&nbsp;
             <a href="tel:+919272418496" className="text-[#f9c74f] font-bold hover:underline">
               9272418496
             </a>

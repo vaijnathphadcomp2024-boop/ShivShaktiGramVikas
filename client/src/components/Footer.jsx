@@ -105,7 +105,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
-                <span>किनगाव, ता. अहमदपूर, जि. लातूर - ४१३५२३, महाराष्ट्र / Kingaon, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra</span>
+                <span>कोळवाडी, ता. अहमदपूर, जि. लातूर - ४१३५२३, महाराष्ट्र / Kolwadi, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra</span>
               </p>
               <p className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-saffron shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-blue-300">
-          <p>© 2026 शिवशक्ती ग्रामविकास प्रतिष्ठान, किनगाव | सर्व हक्क राखीव | All Rights Reserved</p>
+          <p>© 2026 शिवशक्ती ग्रामविकास प्रतिष्ठान, कोळवाडी | सर्व हक्क राखीव | All Rights Reserved</p>
           <p>Designed with ❤️ Vaijanath Phad</p>
         </div>
       </div>
