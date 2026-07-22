@@ -8,10 +8,16 @@ import Gallery from '../components/Gallery';
 
 const SERVICES = [
   {
-    emoji: '📚',
-    title: 'Literacy & Education',
-    desc: 'Functional literacy classes for children, youth, and adults — reading, writing, and numeracy in Marathi, Hindi, and English.',
-    accent: 'border-cyan bg-cyan/5',
+    emoji: '💄',
+    title: 'Beauty Parlour Course',
+    desc: 'Comprehensive beautician and grooming training equipping women with practical salon skills.',
+    accent: 'border-pink-400 bg-pink-50',
+  },
+  {
+    emoji: '✂️',
+    title: 'Sewing Machine Course',
+    desc: 'Professional garment stitching, cutting, and tailoring classes for women to enable self-employment.',
+    accent: 'border-magenta bg-rose-50',
   },
   {
     emoji: '💻',
@@ -26,10 +32,16 @@ const SERVICES = [
     accent: 'border-saffron bg-orange-50',
   },
   {
-    emoji: '👩‍🦰',
-    title: "Women's Empowerment & Livelihood",
-    desc: 'Vocational training, micro-enterprise support, and financial literacy to help women build independent livelihoods.',
-    accent: 'border-magenta bg-rose-50',
+    emoji: '🪡',
+    title: 'Embroidery & Aari Work',
+    desc: 'Traditional and modern decorative embroidery, Aari work, and handicraft creation courses.',
+    accent: 'border-purple-400 bg-purple-50',
+  },
+  {
+    emoji: '📚',
+    title: 'Library for All Age Groups',
+    desc: 'Rich collection of books, storybooks, reference materials, and newspapers open free for children, youth, and adults.',
+    accent: 'border-cyan bg-cyan/5',
   },
   {
     emoji: '🎯',
@@ -105,39 +117,39 @@ const CENTERS = [
 
 const TESTIMONIALS = [
   {
-    quote: "Before joining the Read India Center, I could barely sign my own name. Today I run a small tailoring business from home and keep my own accounts. The center changed my life completely.",
-    name: 'Smt. [Name], [Village]',
-    role: "Women's Livelihood Program Graduate",
+    quote: "Before joining the Read India Center, I could barely sign my name. After completing the Sewing Machine and Aari work course, I now run my own tailoring shop in Kingaon and earn independently.",
+    name: 'Smt. Sunita Ramesh Pawar',
+    role: 'Sewing & Aari Work Graduate, Kingaon',
     emoji: '👩',
     accent: 'border-magenta',
-    tag: "Women's Program",
+    tag: "Women's Empowerment",
     tagColor: 'bg-magenta text-white',
   },
   {
-    quote: "My son was struggling with reading before he joined the Early Childhood Programme here. Within six months he could read full sentences. The teachers here are so dedicated and patient.",
-    name: 'Shri. [Name], [Village]',
-    role: 'Parent of Early Childhood Graduate',
+    quote: "My daughter attended the Early Childhood Development program and uses the Library daily. The dedicated teachers and peaceful environment have helped her excel in studies.",
+    name: 'Shri. Vishnu Mahadev Jadhav',
+    role: 'Parent & Community Member, Kingaon',
     emoji: '👨',
     accent: 'border-cyan',
-    tag: 'ECD Program',
+    tag: 'Library & ECD',
     tagColor: 'bg-cyan text-white',
   },
   {
-    quote: "I learned computer basics and mobile banking at the Digital Skills class. Now I help other villagers with their online government applications. This center gave me confidence I never had.",
-    name: 'Kumari [Name], [Village]',
-    role: 'Digital Skills Program, Batch [Year]',
-    emoji: '👩‍💻',
+    quote: "Learning the Beauty Parlour Course at the center gave me the confidence and skills to start my own salon services. Shivshakti Pratishthan made this possible for rural women like me.",
+    name: 'Kumari Pooja Vilas Shinde',
+    role: 'Beauty Parlour Course Graduate, Ahmadpur',
+    emoji: '👩‍💼',
     accent: 'border-forest',
-    tag: 'Digital Skills',
+    tag: 'Beauty Parlour',
     tagColor: 'bg-forest text-white',
   },
 ];
 
 const STATS = [
-  { num: 'X+',  label: 'Women Trained',              emoji: '👩' },
-  { num: 'X',   label: 'Active Centers',              emoji: '🏛️' },
-  { num: 'X+',  label: 'Villages Reached',            emoji: '🌍' },
-  { num: 'X+',  label: 'Children in ECD Programs',   emoji: '🧒' },
+  { num: '1000+', label: 'Women Trained',              emoji: '👩' },
+  { num: '1+',    label: 'Active Centers',              emoji: '🏛️' },
+  { num: '15+',   label: 'Villages Reached',            emoji: '🌍' },
+  { num: '100+',  label: 'Children in ECD Programs',   emoji: '🧒' },
 ];
 
 const INTERESTS = [
@@ -153,13 +165,13 @@ const INTERESTS = [
 
 function SectionHeading({ tag, title, subtitle, light = false }) {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-6">
       {tag && (
         <span className={`inline-block text-xs font-bold uppercase tracking-widest mb-2 ${light ? 'text-cyan-200' : 'text-cyan'}`}>
           {tag}
         </span>
       )}
-      <h2 className={`text-3xl sm:text-4xl font-extrabold mb-3 ${light ? 'text-white' : 'text-navy'}`}>
+      <h2 className={`text-3xl sm:text-4xl font-extrabold mb-2 ${light ? 'text-white' : 'text-navy'}`}>
         {title}
       </h2>
       {subtitle && (
@@ -167,7 +179,7 @@ function SectionHeading({ tag, title, subtitle, light = false }) {
           {subtitle}
         </p>
       )}
-      <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-cyan" />
+      <div className="mt-3 mx-auto w-16 h-1 rounded-full bg-cyan" />
     </div>
   );
 }
@@ -175,67 +187,13 @@ function SectionHeading({ tag, title, subtitle, light = false }) {
 // ─── Animated counter ──────────────────────────────────────────────────────────
 function CounterCard({ num, label, emoji }) {
   return (
-    <div className="flex flex-col items-center gap-2 rounded-2xl p-6 border
-                    hover:shadow-2xl hover:-translate-y-2 transition-all duration-350 group cursor-default"
-         style={{ background: 'rgba(255, 255, 255, 0.08)', backdropFilter: 'blur(16px)', borderColor: 'rgba(255, 255, 255, 0.12)' }}>
-      <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{emoji}</span>
-      <p className="text-3xl sm:text-4xl font-extrabold text-cyan drop-shadow"
-         style={{
-           background: 'linear-gradient(135deg, #06b6d4, #22d3ee)',
-           WebkitBackgroundClip: 'text',
-           WebkitTextFillColor: 'transparent',
-           backgroundClip: 'text',
-         }}>{num}</p>
-      <p className="text-xs sm:text-sm text-blue-200 text-center font-medium mt-0.5">{label}</p>
+    <div className="flex flex-col items-center gap-2 bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/10">
+      <span className="text-3xl">{emoji}</span>
+      <p className="text-3xl sm:text-4xl font-extrabold text-cyan">{num}</p>
+      <p className="text-xs sm:text-sm text-blue-200 text-center">{label}</p>
     </div>
   );
 }
-
-// ─── Lightbox ─────────────────────────────────────────────────────────────────
-function Lightbox({ item, onClose }) {
-  // Close on Escape key
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [onClose]);
-
-  return (
-    <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="relative max-w-lg w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute -top-4 -right-4 z-10 w-9 h-9 rounded-full bg-white text-navy font-bold flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
-          aria-label="Close lightbox"
-        >
-          ✕
-        </button>
-
-        {/* Enlarged image placeholder */}
-        <div className={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${item.bg} flex flex-col items-center justify-center gap-4 shadow-2xl`}>
-          <span className="text-8xl drop-shadow-lg">{item.emoji}</span>
-          <span className="text-white font-bold text-lg text-center px-6 drop-shadow-md">
-            {item.label}
-          </span>
-          <span className="text-xs text-white/60 italic">
-            [Replace with actual photo]
-          </span>
-        </div>
-
-        <p className="text-white/70 text-center text-sm mt-3">{item.label}</p>
-      </div>
-    </div>
-  );
-}
-
-// ─── Form validation ───────────────────────────────────────────────────────────
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function ReadIndia() {
@@ -247,55 +205,45 @@ export default function ReadIndia() {
       {/* ── 1. Hero ───────────────────────────────────────────────────────── */}
       <section
         id="readindia-hero"
-        className="relative overflow-hidden hero-section bg-gradient-to-br from-[#0e7490] via-cyan to-[#0891b2] min-h-[80vh] flex items-center"
+        className="relative overflow-hidden hero-section bg-gradient-to-br from-[#0e7490] via-cyan to-[#0891b2] py-8 sm:py-10 flex items-center"
       >
         <div className="hero-watermark">
           <img src="/assets/logo.jpg" alt="" aria-hidden="true" />
         </div>
-        {/* Decorative blobs */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-navy/30 blur-3xl pointer-events-none" />
-        {/* Floating shapes */}
-        <div className="absolute top-12 left-8 w-10 h-10 rounded-full bg-white/10 animate-bounce" style={{ animationDuration: '3.2s' }} />
-        <div className="absolute bottom-20 right-12 w-6 h-6 rounded-full bg-white/15 animate-bounce" style={{ animationDuration: '2.5s' }} />
-        <div className="absolute top-1/2 right-1/3 w-4 h-4 rounded-full bg-magenta/40 animate-bounce" style={{ animationDuration: '1.9s' }} />
-
-        <div className="relative z-10 animate-fadeInUp max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white text-center">
+        <div className="relative z-10 animate-fadeInUp max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white text-center">
           {/* Eyebrow pill */}
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/25 rounded-full px-4 py-1.5 text-sm mb-6">
-            <span className="text-xl">📚</span>
-            Shivshakti GramVikas Pratishtan
+          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur border border-white/25 rounded-full px-4 py-1 text-xs sm:text-sm mb-3">
+            <span className="text-lg">📚</span>
+            Shivshakti GramVikas Pratishthan
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-5 drop-shadow-md">
-            A Library That<br />
-            <span className="text-white drop-shadow-lg">Empowers a</span>{' '}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-3 drop-shadow-md">
+            A Library That <span className="text-white drop-shadow-lg">Empowers a</span>{' '}
             <span className="text-navy font-black drop-shadow-lg">Whole Community</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg text-cyan-50 leading-relaxed mb-10">
+          <p className="max-w-xl mx-auto text-sm sm:text-base text-cyan-50 leading-relaxed mb-5">
             The Read India Center is a community-led library and resource hub offering
-            literacy, digital skills, early childhood programmes, and livelihood training
-            to children, women, youth, and adults — free of barriers.
+            literacy, digital skills, early childhood programmes, and livelihood training.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="#centers"
               id="ri-visit-btn"
-              className="px-8 py-3.5 rounded-full bg-white text-cyan font-bold shadow-lg hover:bg-cyan-50 transition-all duration-200 hover:-translate-y-0.5"
+              className="px-6 py-2.5 rounded-full bg-white text-cyan font-bold text-sm shadow-lg hover:bg-cyan-50 transition-all duration-200 hover:-translate-y-0.5"
             >
               Visit a Center
             </a>
           </div>
 
           {/* Quick stats */}
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
             {STATS.map(({ num, label, emoji }) => (
-              <div key={label} className="bg-white/15 backdrop-blur rounded-2xl p-4 border border-white/20">
-                <p className="text-2xl mb-0.5">{emoji}</p>
-                <p className="text-2xl font-extrabold text-white">{num}</p>
-                <p className="text-xs text-cyan-100 mt-0.5 leading-tight">{label}</p>
+              <div key={label} className="bg-white/15 backdrop-blur rounded-xl p-3 border border-white/20">
+                <p className="text-xl mb-0.5">{emoji}</p>
+                <p className="text-xl sm:text-2xl font-extrabold text-white">{num}</p>
+                <p className="text-[11px] sm:text-xs text-cyan-100 mt-0.5 leading-tight">{label}</p>
               </div>
             ))}
           </div>
@@ -303,9 +251,8 @@ export default function ReadIndia() {
       </section>
 
       <BannerSlider pageId="readindia" />
-
       {/* ── 2. About the Center ─────────────────────────────────────────────────────────── */}
-      <section id="about-readindia" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="about-readindia" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             tag="Who We Serve"
@@ -317,7 +264,7 @@ export default function ReadIndia() {
             {/* Text block */}
             <div className="space-y-5 text-gray-600 leading-relaxed">
               <p>
-                The <strong className="text-navy">Read India Center</strong> under Shivshakti GramVikas Pratishtan
+                The <strong className="text-navy">Read India Center</strong> under Shivshakti GramVikas Pratishthan
                 is a community-managed library and multi-programme resource hub located in the heart
                 of rural Maharashtra. It is open to <em>everyone</em> — children, women, youth, and adults —
                 regardless of age, education level, or economic background.
@@ -371,7 +318,7 @@ export default function ReadIndia() {
       </section>
 
       {/* ── 3. What We Offer ──────────────────────────────────────────────── */}
-      <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="services" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             tag="Our Services"
@@ -383,13 +330,11 @@ export default function ReadIndia() {
             {SERVICES.map(({ emoji, title, desc, accent }) => (
               <div
                 key={title}
-                className={`rounded-2xl border ${accent} p-6 flex flex-col gap-4
-                            hover:shadow-xl hover:-translate-y-1.5 transition-all duration-350
-                            group bg-white`}
+                className={`rounded-2xl border ${accent} p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 group bg-white`}
               >
-                <span className="text-4xl group-hover:scale-110 transition-transform duration-300 inline-block w-fit">{emoji}</span>
+                <span className="text-4xl group-hover:scale-110 transition-transform inline-block">{emoji}</span>
                 <div>
-                  <h3 className="font-extrabold text-navy text-base mb-1.5 leading-tight">{title}</h3>
+                  <h3 className="font-bold text-navy text-base mb-1.5">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -399,7 +344,7 @@ export default function ReadIndia() {
       </section>
 
       {/* ── 4. Women's Empowerment Program ───────────────────────────────── */}
-      <section id="womens-program" className="py-16 px-4 sm:px-6 lg:px-8 bg-rose-50">
+      <section id="womens-program" className="py-10 px-4 sm:px-6 lg:px-8 bg-rose-50">
         <div className="max-w-6xl mx-auto">
           {/* Special heading with magenta accent */}
           <div className="text-center mb-12">
@@ -421,16 +366,13 @@ export default function ReadIndia() {
             {WOMENS_PROGRAM.map(({ emoji, title, desc }) => (
               <div
                 key={title}
-                className="bg-white rounded-2xl border border-rose-100 shadow-sm p-6 flex flex-col gap-4
-                           hover:shadow-xl hover:border-magenta hover:-translate-y-1.5
-                           transition-all duration-350 group cursor-default"
+                className="bg-white rounded-2xl border border-rose-100 shadow-sm p-6 flex flex-col gap-4 hover:shadow-lg hover:border-magenta transition-all duration-200 group"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0"
-                     style={{ background: 'linear-gradient(135deg, #fdf2f8, #fce7f3)', border: '1px solid #fbcfe8' }}>
+                <div className="w-14 h-14 rounded-xl bg-magenta/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform shrink-0">
                   {emoji}
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-navy mb-1.5 leading-tight text-base">{title}</h3>
+                  <h3 className="font-bold text-navy mb-1.5 leading-tight">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -455,7 +397,7 @@ export default function ReadIndia() {
   
 
       {/* ── 6. Centers & Timings ──────────────────────────────────────────── */}
-      <section id="centers" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="centers" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             tag="Find Us"
@@ -467,46 +409,40 @@ export default function ReadIndia() {
             {CENTERS.map(({ name, location, days, timings, programs }) => (
               <div
                 key={name}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm
-                           hover:shadow-xl hover:border-cyan hover:-translate-y-1.5
-                           transition-all duration-350 overflow-hidden"
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-cyan transition-all duration-200 overflow-hidden"
               >
                 {/* Header */}
                 <div className="bg-gradient-to-r from-[#0e7490] to-cyan px-5 py-4">
-                  <h3 className="text-white font-extrabold text-base leading-tight">{name}</h3>
-                  <p className="text-cyan-100 text-xs mt-1 leading-relaxed">{location}</p>
+                  <h3 className="text-white font-bold text-base">{name}</h3>
+                  <p className="text-cyan-100 text-xs mt-0.5">{location}</p>
                 </div>
 
                 {/* Details */}
-                <div className="p-5 space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-cyan/15 flex items-center justify-center shrink-0">
-                      <svg className="w-3.5 h-3.5 text-cyan" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                      </svg>
-                    </span>
+                <div className="p-5 space-y-3">
+                  <div className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-cyan mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
                     <div>
-                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none mb-1">Days</p>
-                      <p className="text-sm text-navy font-semibold">{days}</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Days</p>
+                      <p className="text-sm text-navy font-medium">{days}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-cyan/15 flex items-center justify-center shrink-0">
-                      <svg className="w-3.5 h-3.5 text-cyan" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                      </svg>
-                    </span>
+                  <div className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-cyan mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
                     <div>
-                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none mb-1">Timings</p>
-                      <p className="text-sm text-navy font-semibold leading-snug">{timings}</p>
+                      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Timings</p>
+                      <p className="text-sm text-navy font-medium">{timings}</p>
                     </div>
                   </div>
 
                   {/* Program tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-50">
+                  <div className="flex flex-wrap gap-1.5 pt-1">
                     {programs.map((p) => (
-                      <span key={p} className="text-[10px] px-2.5 py-0.5 rounded-full bg-cyan/10 text-cyan font-bold border border-cyan/20">
+                      <span key={p} className="text-[10px] px-2 py-0.5 rounded-full bg-cyan/10 text-cyan font-semibold border border-cyan/20">
                         {p}
                       </span>
                     ))}
@@ -522,7 +458,7 @@ export default function ReadIndia() {
       </section>
 
       {/* ── 7. Impact Stories / Testimonials ─────────────────────────────── */}
-      <section id="stories" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="stories" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             tag="Real Stories"
@@ -534,11 +470,10 @@ export default function ReadIndia() {
             {TESTIMONIALS.map(({ quote, name, role, emoji, accent, tag, tagColor }) => (
               <div
                 key={name}
-                className={`bg-white rounded-2xl border-l-4 ${accent} shadow-md p-6 flex flex-col gap-4
-                            hover:shadow-xl hover:-translate-y-1.5 transition-all duration-350`}
+                className={`bg-white rounded-2xl border-l-4 ${accent} shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition-shadow`}
               >
                 {/* Program tag */}
-                <span className={`self-start text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full ${tagColor} shadow-sm`}>
+                <span className={`self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full ${tagColor}`}>
                   {tag}
                 </span>
 
@@ -548,13 +483,13 @@ export default function ReadIndia() {
                 </blockquote>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 pt-3 border-t border-slate-50">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl shrink-0 shadow-inner">
+                <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xl shrink-0">
                     {emoji}
                   </div>
                   <div>
-                    <p className="text-navy font-extrabold text-sm leading-tight">{name}</p>
-                    <p className="text-gray-400 text-xs mt-0.5 leading-none">{role}</p>
+                    <p className="text-navy font-bold text-sm leading-tight">{name}</p>
+                    <p className="text-gray-400 text-xs">{role}</p>
                   </div>
                 </div>
               </div>
@@ -567,7 +502,7 @@ export default function ReadIndia() {
       </section>
 
       {/* ── 8. Impact Statistics ──────────────────────────────────────────── */}
-      <section id="impact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-navy via-[#0f2d4a] to-[#0e7490]">
+      <section id="impact" className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-navy via-[#0f2d4a] to-[#0e7490]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-cyan mb-2">

@@ -4,11 +4,14 @@ import { Autoplay, Pagination, EffectFade, Navigation } from 'swiper/modules';
 import { db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 
+// A mapping of page IDs to their respective banner images.
+// You can change these to point to local assets or any external URL.
 const PAGE_BANNERS = {
   home: [
     'https://images.unsplash.com/photo-1593113565214-8745970c66db?auto=format&fit=crop&q=80',
@@ -63,59 +66,41 @@ export default function BannerSlider({ pageId }) {
   const defaultImages = PAGE_BANNERS[pageId] || PAGE_BANNERS['home'];
   const images = dynamicImages.length > 0 ? dynamicImages : defaultImages;
 
-  /* ── Skeleton loader ── */
-  if (loading) {
-    return (
-      <div className="w-full h-[260px] md:h-[420px] lg:h-[520px] relative overflow-hidden bg-gray-100">
-        <div className="absolute inset-0 skeleton" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-saffron border-t-transparent rounded-full animate-spin opacity-60" />
-        </div>
-      </div>
-    );
-  }
-
-  if (!images || images.length === 0) return null;
+  if (loading || !images || images.length === 0) return (
+    <div className="w-full h-[300px] md:h-[450px] lg:h-[550px] bg-gray-100 animate-pulse"></div>
+  );
 
   return (
-    <div className="w-full relative overflow-hidden" style={{ boxShadow: '0 4px 32px -8px rgba(26,60,94,0.15)' }}>
+    <div className="w-full relative bg-gray-50 overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade, Navigation]}
         effect="fade"
         fadeEffect={{ crossFade: true }}
         speed={1000}
-        autoplay={{ delay: 4500, disableOnInteraction: false }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
-          bulletClass: 'swiper-pagination-bullet',
-          bulletActiveClass: 'swiper-pagination-bullet-active',
+          bulletClass: 'swiper-pagination-bullet !bg-white/50 !w-3 !h-3 !opacity-100 hover:!bg-white transition-colors',
+          bulletActiveClass: '!bg-saffron !w-8 !rounded-full',
         }}
         navigation={true}
         loop={true}
-        className="w-full h-[240px] sm:h-[350px] md:h-[450px] lg:h-[550px]"
+        className="w-full h-[300px] md:h-[450px] lg:h-[550px] [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-next]:drop-shadow-lg [&_.swiper-button-prev]:drop-shadow-lg"
       >
         {images.map((imgUrl, index) => (
-          <SwiperSlide key={index} className="bg-gray-900">
-            <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
-              {/* Blurred backdrop image to fill any aspect ratio gaps gracefully */}
-              <img
-                src={imgUrl}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 pointer-events-none"
-                aria-hidden="true"
-              />
-              
-              {/* The full banner image shown without cropping */}
+          <SwiperSlide key={index} className="bg-gray-100">
+            <div className="relative w-full h-full bg-gray-100">
               <img
                 src={imgUrl}
                 alt={`${pageId} banner ${index + 1}`}
-                className="relative z-10 w-full h-full object-contain"
+                className="w-full h-full object-contain bg-black/5"
                 loading={index === 0 ? "eager" : "lazy"}
               />
-              
-              {/* Gradient overlays for polish & depth */}
-              <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/10 via-transparent to-transparent pointer-events-none" />
+              {/* Subtle dark gradient overlay for better text readability if text is added later */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
             </div>
           </SwiperSlide>
         ))}

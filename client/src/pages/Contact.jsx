@@ -44,7 +44,7 @@ const DEFAULT_NOTICES = [
     categoryColor: 'bg-saffron text-white',
     date: 'July 2026',
     title: 'Akhand Harinam Saptah — Schedule Announced',
-    desc: 'Shivshakti GramVikas Pratishtan announces the schedule for the upcoming Akhand Harinam Saptah. Seven days of Kirtan, Bhajan, and Pravachan. Open to all.',
+    desc: 'Shivshakti GramVikas Pratishthan announces the schedule for the upcoming Akhand Harinam Saptah. Seven days of Kirtan, Bhajan, and Pravachan. Open to all.',
   },
   {
     category: 'Ambulance',
@@ -319,7 +319,7 @@ export default function Contact() {
         {/* ── 1. Hero ───────────────────────────────────────────────────── */}
         <section
           id="contact-hero"
-          className="relative overflow-hidden hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest py-16 sm:py-20 px-4 sm:px-6 lg:px-8 text-center"
+          className="relative overflow-hidden hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest py-8 sm:py-10 px-4 sm:px-6 lg:px-8 text-center"
         >
           <div className="hero-watermark">
             <img src="/assets/logo.jpg" alt="" aria-hidden="true" />
@@ -330,29 +330,29 @@ export default function Contact() {
           <div className="relative z-10 animate-fadeInUp max-w-3xl mx-auto text-white">
             {/* Devanagari tagline */}
             <p
-              className="text-saffron font-bold text-xl sm:text-2xl mb-2"
+              className="text-saffron font-bold text-lg sm:text-xl mb-1"
               style={{ fontFamily: "'Noto Sans Devanagari', 'Inter', sans-serif" }}
             >
               एकच ध्यास... सर्वांगिण विकास...
             </p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Get in Touch</h1>
-            <p className="text-blue-200 text-lg mb-8 max-w-lg mx-auto">
+            <h1 className="text-3xl sm:text-4xl font-extrabold mb-2">Get in Touch</h1>
+            <p className="text-blue-200 text-sm sm:text-base mb-4 max-w-md mx-auto">
               Reach us for queries, volunteering, admissions, or support.
               We are here to help.
             </p>
 
             {/* Quick contact pills */}
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2.5">
               <a href="tel:+919763660738"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/20 transition-colors">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-xs sm:text-sm hover:bg-white/20 transition-colors">
                 📞 9763660738
               </a>
               <a href="tel:+919272418496"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#e11d48]/80 border border-[#e11d48] text-white font-semibold text-sm hover:bg-[#e11d48] transition-colors">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e11d48]/80 border border-[#e11d48] text-white font-semibold text-xs sm:text-sm hover:bg-[#e11d48] transition-colors">
                 🚑 Ambulance: 9272418496
               </a>
               <a href="mailto:shivshaktigramvikas@gmail.com"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-sm hover:bg-white/20 transition-colors">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-semibold text-xs sm:text-sm hover:bg-white/20 transition-colors">
                 ✉️ Email Us
               </a>
             </div>
@@ -360,7 +360,7 @@ export default function Contact() {
         </section>
 
         {/* ── 2. Contact Details + Map ──────────────────────────────────── */}
-        <section id="contact-details" className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
+        <section id="contact-details" className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
 
             {/* Left — Contact details */}
@@ -374,9 +374,9 @@ export default function Contact() {
                 <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 space-y-3">
                   <p className="flex items-start gap-2 text-sm text-gray-700">
                     <span className="text-navy mt-0.5">📍</span>
-                    <span><strong className="text-navy">Shivshakti Gram Vikas Pratishtan (S.S.G.V.P.)</strong><br />
+                    <span><strong className="text-navy">Shivshakti Gram Vikas Pratishthan (S.S.G.V.P.)</strong><br />
                     Kingaon, Tal: Ahmadpur,<br />
-                    Dist: Latur, Maharashtra</span>
+                    Dist: Latur - 413523, Maharashtra</span>
                   </p>
                   <div className="h-px bg-gray-100" />
                   <p className="flex items-center gap-2 text-sm">
@@ -467,22 +467,22 @@ export default function Contact() {
               <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-md">
                 {/* TODO: Replace with real embed URL */}
                 <iframe
-                  title="Shivshakti GramVikas Pratishtan — Kingaon, Ahmadpur, Latur"
-                  src="https://maps.google.com/maps?q=Kingaon,Ahmadpur,Latur,Maharashtra&output=embed"
+                  title="Shivshakti GramVikas Pratishthan — Kingaon, Ahmadpur, Latur - 413523"
+                  src="https://maps.google.com/maps?q=Kingaon,Ahmadpur,Latur,Maharashtra,413523&output=embed"
                   width="100%"
                   height="320"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="border-0 w-full"
-                  aria-label="Map showing Kingaon, Ahmadpur, Latur, Maharashtra"
+                  aria-label="Map showing Kingaon, Ahmadpur, Latur - 413523, Maharashtra"
                 />
                 {/* TODO: Replace with real embed URL from Google Maps */}
               </div>
               <p className="text-xs text-center text-gray-400 italic">
-                Kingaon, Tal: Ahmadpur, Dist: Latur, Maharashtra
+                Kingaon, Tal: Ahmadpur, Dist: Latur - 413523, Maharashtra
               </p>
               <a
-                href="https://maps.google.com/?q=Kingaon,Ahmadpur,Latur,Maharashtra"
+                href="https://maps.google.com/?q=Kingaon,Ahmadpur,Latur,Maharashtra,413523"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="ct-directions-btn"
@@ -495,9 +495,9 @@ export default function Contact() {
         </section>
 
         {/* ── 3. Enquiry Form ───────────────────────────────────────────── */}
-        <section id="enquiry-form" className="py-14 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section id="enquiry-form" className="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-forest mb-2">Send a Message</span>
               <h2 className="text-3xl font-extrabold text-navy mb-2">Enquiry Form</h2>
               <p className="text-gray-500 text-sm">Fill in the form below and our team will get back to you within 24 hours.</p>
@@ -511,9 +511,9 @@ export default function Contact() {
         </section>
 
         {/* ── 4. Latest Notices ─────────────────────────────────────────── */}
-        <section id="notices" className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
+        <section id="notices" className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
+            <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
               <div>
                 <span className="block text-xs font-bold uppercase tracking-widest text-saffron mb-1">
                   Updates
@@ -569,9 +569,9 @@ export default function Contact() {
         </section>
 
         {/* ── 5. Donate Section (navy background) ──────────────────────── */}
-        <section id="donate" className="py-14 px-4 sm:px-6 lg:px-8 bg-navy">
+        <section id="donate" className="py-8 px-4 sm:px-6 lg:px-8 bg-navy">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <p
                 className="text-saffron font-bold text-xl sm:text-2xl mb-2"
                 style={{ fontFamily: "'Noto Sans Devanagari', 'Inter', sans-serif" }}
@@ -602,7 +602,7 @@ export default function Contact() {
                     { dt: 'IFSC Code',      dd: '[IFSC — Placeholder]',               copy: true },
                     { dt: 'Bank Name',      dd: '[Bank Name — Placeholder]' },
                     { dt: 'Branch',         dd: 'Ahmadpur' },
-                    { dt: 'Account Type',   dd: 'Savings / Current — [Placeholder]' },
+                    { dt: 'Account Type',   dd: 'Current Account' },
                   ].map(({ dt, dd, copy }) => (
                     <div key={dt} className="flex items-start justify-between gap-2 py-2 border-b border-gray-100 last:border-0">
                       <div>
@@ -681,7 +681,7 @@ export default function Contact() {
             {/* 80G note */}
             <div className="mt-6 text-center">
               <p className="text-blue-200 text-xs">
-                💼 Donations to Shivshakti GramVikas Pratishtan may be eligible for tax exemption under Section 80G.
+                💼 Donations to Shivshakti GramVikas Pratishthan may be eligible for tax exemption under Section 80G.
                 {' '}<span className="text-blue-300 italic">[Confirm 80G status — TODO]</span>
               </p>
             </div>

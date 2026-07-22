@@ -6,39 +6,39 @@ import { collection, getDocs } from 'firebase/firestore';
 
 const TIMELINE = [
   {
-    year: '2010',
+    year: '28 Sept 2018',
     title: 'Foundation Established',
-    desc: 'Shivshakti GramVikas Pratishtan was registered as a non-governmental organisation with the primary goal of rural upliftment in Maharashtra.',
+    desc: 'Shivshakti GramVikas Pratishthan was registered as a non-governmental organisation with the primary goal of rural upliftment in Maharashtra.',
   },
   {
-    year: '2012',
-    title: 'Pre School Programme Launched',
-    desc: 'Our first Pre School centre opened its doors, providing quality early childhood education to children from economically weaker families.',
-  },
-  {
-    year: '2014',
-    title: 'Read India Center Inaugurated',
-    desc: 'Partnering with national literacy missions, we set up the Read India Center to combat adult illiteracy across five villages.',
-  },
-  {
-    year: '2016',
-    title: 'Safety College Established',
-    desc: 'Recognising the need for vocational safety training, we launched a Fire & Industrial Safety College, producing certified safety professionals.',
-  },
-  {
-    year: '2018',
-    title: '24×7 Ambulance Service',
-    desc: 'A dedicated ambulance service was commissioned to provide round-the-clock emergency healthcare access to remote rural households.',
-  },
-  {
-    year: '2021',
+    year: 'June 2020',
     title: 'Social Activities Wing',
     desc: 'A dedicated wing for tree plantation, women empowerment, and health awareness drives was formally constituted, expanding our community reach.',
   },
   {
-    year: '2024',
+    year: 'June 2021',
+    title: 'READ India Center Inaugurated',
+    desc: 'Partnering with national literacy missions, we set up the Read India Center to combat illiteracy and provide skills across villages.',
+  },
+  {
+    year: 'May 2026',
+    title: '24×7 Ambulance Service Dedicated to People',
+    desc: 'A dedicated ambulance service was commissioned to provide round-the-clock emergency healthcare access to remote rural households.',
+  },
+  {
+    year: 'June 2026',
+    title: 'Pre School Programme Launched',
+    desc: 'Our Pre School centres opened, providing quality early childhood education to children from rural families.',
+  },
+  {
+    year: 'June 2026',
+    title: 'Safety College Established',
+    desc: 'Recognising the need for vocational safety training, we launched Shivshakti Safety College, producing certified safety professionals.',
+  },
+  {
+    year: '2026 Onwards',
     title: 'Expanding Horizons',
-    desc: 'Today we operate across 10+ villages, have benefited 1000+ students, and continue growing our network of volunteers and partners.',
+    desc: 'Expanding our reach across villages, empowering thousands of students, women, and volunteers through education and community initiatives.',
   },
 ];
 
@@ -65,17 +65,17 @@ const ACHIEVEMENTS = [
 // ─── Reusable section heading ─────────────────────────────────────────────────
 function SectionHeading({ tag, title, subtitle }) {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-6">
       {tag && (
         <span className="inline-block text-xs font-bold uppercase tracking-widest text-saffron mb-2">
           {tag}
         </span>
       )}
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mb-3">{title}</h2>
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mb-2">{title}</h2>
       {subtitle && (
         <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base">{subtitle}</p>
       )}
-      <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-saffron" />
+      <div className="mt-3 mx-auto w-16 h-1 rounded-full bg-saffron" />
     </div>
   );
 }
@@ -83,22 +83,23 @@ function SectionHeading({ tag, title, subtitle }) {
 // ─── Page hero banner ─────────────────────────────────────────────────────────
 function PageHero() {
   return (
-    <section className="relative hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest py-20 px-4 text-white overflow-hidden">      <div className="hero-watermark">
+    <section className="relative hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest py-8 sm:py-10 px-4 text-white overflow-hidden">
+      <div className="hero-watermark">
         <img src="/assets/logo.jpg" alt="" aria-hidden="true" />
-      </div>      {/* decorative blobs */}
+      </div>
+      {/* decorative blobs */}
       <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-saffron/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-forest/20 blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 animate-fadeInUp max-w-4xl mx-auto text-center">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-orange-300 mb-3">
+      <div className="relative z-10 animate-fadeInUp max-w-3xl mx-auto text-center">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-orange-300 mb-2">
           Know Us Better
         </span>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
-          About <span className="text-saffron">Shivshakti</span>
-          <br />
-          <span className="text-green-300">GramVikas Pratishtan</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 leading-tight">
+          About <span className="text-saffron">Shivshakti</span>{' '}
+          <span className="text-green-300">GramVikas Pratishthan</span>
         </h1>
-        <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-blue-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
           A grassroots NGO committed to transforming rural Maharashtra through
           education, healthcare, safety training, and sustainable community development.
         </p>
@@ -110,7 +111,7 @@ function PageHero() {
 // ─── 1. Founder's Message ─────────────────────────────────────────────────────
 function FounderMessage() {
   return (
-    <section id="founders-message" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="founders-message" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-4xl mx-auto">
         <SectionHeading
           tag="From the Desk of Our Founder"
@@ -130,8 +131,8 @@ function FounderMessage() {
                 👤
               </div>
               <div className="text-center">
-                <p className="font-bold text-white text-sm">Prof.Pandurang Digambar Dahiphale</p>
-                <p className="text-xs text-orange-200">Founder & Chairman</p>
+                <p className="font-bold text-white text-sm">Prof. Pandurang Digambar Dahiphale</p>
+                <p className="text-xs text-orange-200 font-semibold">Founder & Secretary</p>
               </div>
             </div>
 
@@ -141,7 +142,7 @@ function FounderMessage() {
                 "When I look at our villages, I see immense potential waiting to be
                 unlocked. Every child deserves quality education, every family
                 deserves dignity, and every young person deserves a skill that can
-                transform their life. Shivshakti GramVikas Pratishtan was born from
+                transform their life. Shivshakti GramVikas Pratishthan was born from
                 this belief — that change begins at the grassroots level, one
                 community at a time."
               </p>
@@ -157,7 +158,7 @@ function FounderMessage() {
               </p>
               <div className="mt-6 h-px bg-white/20" />
               <p className="mt-4 text-sm text-orange-200 font-medium">
-                — Prof.Pandurang Digambar Dahiphale, Founder, Shivshakti GramVikas Pratishtan
+                — Prof. Pandurang Digambar Dahiphale, Founder & Secretary, Shivshakti GramVikas Pratishthan
               </p>
             </blockquote>
           </div>
@@ -170,7 +171,7 @@ function FounderMessage() {
 // ─── 2. History Timeline ──────────────────────────────────────────────────────
 function History() {
   return (
-    <section id="history" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="history" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <SectionHeading
           tag="Our Journey"
@@ -192,34 +193,28 @@ function History() {
                     isLeft ? 'sm:flex-row' : 'sm:flex-row-reverse'
                   }`}
                 >
-                  {/* Year bubble — always on the left on mobile, centred on desktop */}
+                  {/* Year bubble — mobile */}
                   <div className="flex sm:hidden items-center gap-4 pl-0">
-                    <div className="w-12 h-12 rounded-full bg-navy border-4 border-saffron flex items-center justify-center text-white font-extrabold text-xs shrink-0 z-10 shadow-lg">
-                      {item.year.slice(2)}
+                    <div className="px-3 py-1 rounded-full bg-navy border-2 border-saffron flex items-center justify-center text-orange-200 font-extrabold text-xs shrink-0 z-10 shadow-lg">
+                      {item.year}
                     </div>
                   </div>
 
                   {/* Desktop bubble (centred) */}
-                  <div className="hidden sm:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-navy border-4 border-saffron items-center justify-center text-white font-extrabold text-xs z-10 shadow-lg flex-col leading-tight text-center">
-                    <span className="text-[10px] text-orange-200">{item.year.slice(0, 2)}</span>
-                    <span>{item.year.slice(2)}</span>
+                  <div className="hidden sm:flex absolute left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-navy border-2 border-saffron items-center justify-center text-orange-200 font-extrabold text-xs z-10 shadow-lg leading-tight text-center whitespace-nowrap">
+                    <span>{item.year}</span>
                   </div>
 
                   {/* Card — offset left or right on desktop */}
                   <div
-                    className={`ml-16 sm:ml-0 sm:w-[calc(50%-3rem)] bg-white rounded-2xl shadow-md
-                               border border-gray-100 p-5 group
-                               hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-                               relative overflow-hidden
-                               ${ isLeft ? 'sm:mr-auto sm:text-right' : 'sm:ml-auto sm:text-left' }`}
+                    className={`ml-16 sm:ml-0 sm:w-[calc(50%-3rem)] bg-white rounded-2xl shadow-md border border-gray-100 p-5 hover:shadow-lg transition-shadow ${
+                      isLeft ? 'sm:mr-auto sm:text-right' : 'sm:ml-auto sm:text-left'
+                    }`}
                   >
-                    {/* Gradient accent top strip */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-saffron to-orange-300" />
-                    <span className="inline-block text-xs font-black text-saffron uppercase tracking-wider mb-1.5"
-                          style={{ background: 'linear-gradient(135deg,#f97316,#fb923c)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                    <span className="inline-block text-xs font-bold text-saffron uppercase tracking-wider mb-1">
                       {item.year}
                     </span>
-                    <h3 className="font-bold text-navy text-base mb-1.5">{item.title}</h3>
+                    <h3 className="font-bold text-navy text-base mb-1">{item.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
@@ -235,7 +230,7 @@ function History() {
 // ─── 3. Vision & Mission ──────────────────────────────────────────────────────
 function VisionMission() {
   return (
-    <section id="vision-mission" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="vision-mission" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
           tag="Our Purpose"
@@ -334,12 +329,12 @@ function Trustees() {
   }, []);
 
   return (
-    <section id="trustees" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="trustees" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           tag="Leadership"
           title="Trustees & Committee Members"
-          subtitle="Meet the dedicated individuals who guide and govern Shivshakti GramVikas Pratishtan."
+          subtitle="Meet the dedicated individuals who guide and govern Shivshakti GramVikas Pratishthan."
         />
 
         {loading ? (
@@ -351,44 +346,25 @@ function Trustees() {
             {members.map((member, i) => (
               <div
                 key={member.id}
-                className="bg-white border border-gray-100 rounded-2xl shadow-sm
-                           hover:shadow-xl transition-all duration-300 hover:-translate-y-2
-                           overflow-hidden group"
+                className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 overflow-hidden group"
               >
-                {/* Gradient top strip */}
-                <div className={`h-1.5 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
+                <div className={`h-2 bg-gradient-to-r ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`} />
 
-                <div className="p-7 flex flex-col items-center text-center">
-                  {/* Avatar */}
+                <div className="p-6 flex flex-col items-center text-center">
                   {member.imageUrl ? (
-                    <div className="relative mb-4">
-                      <img
-                        src={member.imageUrl}
-                        alt={member.name}
-                        className="w-20 h-20 rounded-full object-cover shadow-lg
-                                   group-hover:scale-105 group-hover:shadow-xl
-                                   transition-all duration-300 ring-2 ring-transparent
-                                   group-hover:ring-saffron group-hover:ring-offset-2"
-                      />
-                    </div>
+                    <img src={member.imageUrl} alt={member.name} className="w-20 h-20 rounded-full object-cover shadow-md mb-4 group-hover:scale-105 transition-transform duration-200" />
                   ) : (
-                    <div
-                      className={`w-20 h-20 rounded-full bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]}
-                                  flex items-center justify-center text-white font-extrabold text-xl
-                                  shadow-lg mb-4 group-hover:scale-110 group-hover:shadow-xl
-                                  transition-all duration-300 ring-2 ring-transparent
-                                  group-hover:ring-saffron group-hover:ring-offset-2`}
-                    >
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${AVATAR_COLORS[i % AVATAR_COLORS.length]} flex items-center justify-center text-white font-extrabold text-xl shadow-md mb-4 group-hover:scale-105 transition-transform duration-200`}>
                       {member.name.charAt(0)}
                     </div>
                   )}
 
                   <h3 className="font-bold text-navy text-base leading-tight mb-1">{member.name}</h3>
-                  <p className="text-xs font-bold text-saffron uppercase tracking-wider mb-3">
+                  <p className="text-xs font-semibold text-saffron uppercase tracking-wide mb-3">
                     {member.designation}
                   </p>
 
-                  <div className="w-12 h-0.5 rounded-full bg-gradient-to-r from-saffron to-orange-300 mb-3" />
+                  <div className="w-10 h-0.5 rounded-full bg-gray-200 mb-3" />
 
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Dedicated to the mission of rural empowerment and community development.
@@ -423,7 +399,7 @@ function Achievements() {
   }, []);
 
   return (
-    <section id="achievements" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-navy to-forest">
+    <section id="achievements" className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-navy to-forest">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-orange-300 mb-2">
@@ -447,21 +423,16 @@ function Achievements() {
             {achievements.map((ach, i) => (
               <div
                 key={ach.id}
-                className="flex items-start gap-4 rounded-2xl p-5 border
-                           hover:border-saffron/30 transition-all duration-300 group"
-                style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', borderColor: 'rgba(255,255,255,0.12)' }}
+                className="flex items-start gap-4 bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/10 hover:bg-white/15 transition-colors group"
               >
-                {/* Icon with glow */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0
-                             group-hover:scale-110 group-hover:shadow-lg transition-all duration-300"
-                  style={{ background: 'linear-gradient(135deg, rgba(249,115,22,0.3), rgba(249,115,22,0.1))' }}
-                >
+                <div className="w-12 h-12 rounded-xl bg-saffron/20 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
                   🏆
                 </div>
                 <div className="self-center">
                   <p className="text-white font-bold text-sm sm:text-base mb-1">{ach.title}</p>
-                  <p className="text-blue-200 text-xs sm:text-sm leading-relaxed">{ach.description}</p>
+                  <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                    {ach.description}
+                  </p>
                 </div>
               </div>
             ))}

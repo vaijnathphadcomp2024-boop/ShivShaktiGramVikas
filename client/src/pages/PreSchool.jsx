@@ -88,13 +88,13 @@ const ADMISSION_STEPS = [
 
 function SectionHeading({ tag, title, subtitle, light = false }) {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-6">
       {tag && (
         <span className={`inline-block text-xs font-bold uppercase tracking-widest mb-2 ${light ? 'text-orange-200' : 'text-saffron'}`}>
           {tag}
         </span>
       )}
-      <h2 className={`text-3xl sm:text-4xl font-extrabold mb-3 ${light ? 'text-white' : 'text-navy'}`}>
+      <h2 className={`text-3xl sm:text-4xl font-extrabold mb-2 ${light ? 'text-white' : 'text-navy'}`}>
         {title}
       </h2>
       {subtitle && (
@@ -102,7 +102,7 @@ function SectionHeading({ tag, title, subtitle, light = false }) {
           {subtitle}
         </p>
       )}
-      <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-saffron" />
+      <div className="mt-3 mx-auto w-16 h-1 rounded-full bg-saffron" />
     </div>
   );
 }
@@ -143,7 +143,7 @@ export default function PreSchool() {
       {/* ── 1. Hero ───────────────────────────────────────────────────────── */}
       <section
         id="preschool-hero"
-        className="relative overflow-hidden hero-section bg-gradient-to-br from-saffron via-orange-500 to-amber-600 min-h-[80vh] flex items-center"
+        className="relative overflow-hidden hero-section bg-gradient-to-br from-saffron via-orange-500 to-amber-600 py-12 flex items-center"
       >
         <div className="hero-watermark">
           <img src="/assets/logo.jpg" alt="" aria-hidden="true" />
@@ -156,50 +156,47 @@ export default function PreSchool() {
         <div className="absolute bottom-16 right-16 w-8 h-8 rounded-full bg-white/20 animate-bounce" style={{ animationDuration: '2.3s' }} />
         <div className="absolute top-1/3 right-1/4 w-5 h-5 rounded-full bg-white/15 animate-bounce" style={{ animationDuration: '1.9s' }} />
 
-        <div className="relative z-10 animate-fadeInUp max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white text-center">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/30 rounded-full px-4 py-1.5 text-sm mb-6">
-            <span className="text-xl">🏫</span>
-            Shivshakti GramVikas Pratishtan
+        <div className="relative z-10 animate-fadeInUp max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-white text-center">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur border border-white/30 rounded-full px-4 py-1 text-xs sm:text-sm mb-3">
+            <span className="text-lg">🏫</span>
+            Shivshakti GramVikas Pratishthan
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-5 drop-shadow-md">
-            Pre School Programme
-            <span className="block text-2xl sm:text-3xl font-semibold text-orange-100 mt-2">
-              Nurturing Every Little Mind 🌱
-            </span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-3 drop-shadow-md">
+            Pre School Programme 🌱
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg text-orange-50 leading-relaxed mb-10">
+          <p className="max-w-xl mx-auto text-sm sm:text-base text-orange-50 leading-relaxed mb-5">
             A joyful, safe and stimulating learning environment for children aged
             2 to 6 years — where curiosity is celebrated and every child thrives.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="#ps-enquiry"
-              className="px-8 py-3.5 rounded-full bg-white text-saffron font-bold shadow-lg hover:bg-orange-50 transition-all duration-200 hover:-translate-y-0.5"
+              className="px-6 py-2.5 rounded-full bg-white text-saffron font-bold text-sm shadow-lg hover:bg-orange-50 transition-all duration-200 hover:-translate-y-0.5"
             >
               Apply for Admission
             </a>
             <a
               href="#age-groups"
-              className="px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold transition-all duration-200 hover:-translate-y-0.5"
+              className="px-6 py-2.5 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
             >
               Explore Age Groups ↓
             </a>
           </div>
 
           {/* Quick stats */}
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
             {[
               { n: '2–6',   l: 'Age Group (yrs)' },
               { n: '200+',  l: 'Children Enrolled' },
               { n: '15+',   l: 'Years Experience' },
               { n: '100%',  l: 'Trained Teachers' },
             ].map(({ n, l }) => (
-              <div key={l} className="bg-white/15 backdrop-blur rounded-2xl p-4 border border-white/20">
-                <p className="text-2xl font-extrabold text-white">{n}</p>
-                <p className="text-xs text-orange-100 mt-0.5">{l}</p>
+              <div key={l} className="bg-white/15 backdrop-blur rounded-xl p-3 border border-white/20">
+                <p className="text-xl sm:text-2xl font-extrabold text-white">{n}</p>
+                <p className="text-[11px] sm:text-xs text-orange-100 mt-0.5">{l}</p>
               </div>
             ))}
           </div>
@@ -209,7 +206,7 @@ export default function PreSchool() {
       <BannerSlider pageId="preschool" />
 
       {/* ── 2. About / Philosophy ─────────────────────────────────────────── */}
-      <section id="about-preschool" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="about-preschool" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             tag="Our Philosophy"
@@ -243,8 +240,7 @@ export default function PreSchool() {
                 },
               ].map(({ icon, title, body }) => (
                 <div key={title} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md"
-                       style={{ background: 'linear-gradient(135deg, #fffbeb, #fef3c7)', border: '1px solid #fde68a' }}>
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition-transform">
                     {icon}
                   </div>
                   <div>
@@ -284,7 +280,7 @@ export default function PreSchool() {
       </section>
 
       {/* ── 3. Age Groups ─────────────────────────────────────────────────── */}
-      <section id="age-groups" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="age-groups" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             tag="Age Groups"
@@ -296,20 +292,16 @@ export default function PreSchool() {
             {AGE_GROUPS.map(({ range, label, emoji, color, dot, points }) => (
               <div
                 key={label}
-                className={`relative overflow-hidden rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4
-                            hover:shadow-2xl hover:-translate-y-2 transition-all duration-350 group cursor-default`}
+                className={`rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200`}
               >
-                {/* Subtle top decoration */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="text-4xl group-hover:scale-110 transition-transform duration-300">{emoji}</div>
+                <div className="text-4xl">{emoji}</div>
                 <div>
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-0.5">{range}</p>
-                  <h3 className="font-extrabold text-navy text-lg leading-tight">{label}</h3>
+                  <h3 className="font-extrabold text-navy text-lg">{label}</h3>
                 </div>
-                <ul className="space-y-2.5 flex-1">
+                <ul className="space-y-2 flex-1">
                   {points.map((pt) => (
-                    <li key={pt} className="flex items-start gap-2.5 text-xs text-gray-600 leading-relaxed">
+                    <li key={pt} className="flex items-start gap-2 text-xs text-gray-600">
                       <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${dot} shrink-0`} />
                       {pt}
                     </li>
@@ -322,7 +314,7 @@ export default function PreSchool() {
       </section>
 
       {/* ── 4. Curriculum / Daily Activities ─────────────────────────────── */}
-      <section id="curriculum" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="curriculum" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             tag="What We Teach"
@@ -348,13 +340,11 @@ export default function PreSchool() {
             {CURRICULUM.map(({ emoji, label, desc }) => (
               <div
                 key={label}
-                className="flex flex-col gap-3 bg-white border border-slate-100 rounded-2xl p-5
-                           hover:shadow-xl hover:border-saffron/40 hover:-translate-y-1
-                           transition-all duration-300 group cursor-default"
+                className="flex flex-col gap-3 bg-orange-50 border border-orange-100 rounded-2xl p-5 hover:shadow-md hover:border-saffron transition-all duration-200 group"
               >
-                <span className="text-3xl group-hover:scale-110 transition-transform duration-300 inline-block w-fit">{emoji}</span>
+                <span className="text-3xl group-hover:scale-110 transition-transform inline-block">{emoji}</span>
                 <div>
-                  <h4 className="font-extrabold text-navy text-sm mb-1">{label}</h4>
+                  <h4 className="font-bold text-navy text-sm mb-1">{label}</h4>
                   <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -365,7 +355,7 @@ export default function PreSchool() {
 
 
       {/* ── 6. Admission Process & Fees ───────────────────────────────────── */}
-      <section id="admission" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="admission" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
             tag="How to Join"
@@ -378,21 +368,17 @@ export default function PreSchool() {
             {ADMISSION_STEPS.map(({ step, title, desc }) => (
               <div
                 key={step}
-                className="relative bg-white border border-gray-100 rounded-2xl shadow-sm p-6
-                           hover:shadow-xl hover:border-saffron/30 hover:-translate-y-1
-                           transition-all duration-300 group overflow-hidden"
+                className="relative bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:shadow-md hover:border-saffron transition-all duration-200 group overflow-hidden"
               >
-                {/* Big number watermark with better color & sizing */}
-                <span className="absolute -top-6 -right-6 text-9xl font-black text-orange-50/50 select-none
-                                 group-hover:text-orange-100/60 group-hover:scale-105 transition-all duration-350">
+                {/* Big number watermark */}
+                <span className="absolute -top-3 -right-3 text-8xl font-extrabold text-orange-50 select-none group-hover:text-orange-100 transition-colors">
                   {step}
                 </span>
-                <div className="relative z-10">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm mb-4 shadow-md"
-                       style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-white font-extrabold text-sm mb-4 shadow">
                     {step}
                   </div>
-                  <h3 className="font-bold text-navy text-base mb-2">{title}</h3>
+                  <h3 className="font-bold text-navy mb-2">{title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </div>
@@ -400,26 +386,15 @@ export default function PreSchool() {
           </div>
 
           {/* Download Fee Structure */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-8 text-center max-w-xl mx-auto mt-10
-                          shadow-2xl shadow-navy/5 relative overflow-hidden group">
-            {/* Background design accents */}
-            <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full bg-orange-50 group-hover:scale-110 transition-transform duration-300" />
-            
-            <div className="relative z-10">
-              <h3 className="text-navy font-extrabold text-xl mb-3">Fee Structure</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
-                Download our complete fee structure for the current academic year, including details about instalment options and scholarships for BPL families.
-              </p>
-              <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full
-                                    bg-gradient-to-r from-saffron to-orange-500 hover:from-orange-500 hover:to-saffron
-                                    text-white font-bold transition-all duration-200 shadow-lg shadow-orange-500/25
-                                    hover:-translate-y-0.5">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                </svg>
-                Download Fee Structure
-              </a>
-            </div>
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-md p-8 text-center max-w-xl mx-auto mt-10">
+            <h3 className="text-navy font-bold text-xl mb-3">Fee Structure</h3>
+            <p className="text-gray-500 text-sm mb-6">
+              Download our complete fee structure for the current academic year, including details about instalment options and scholarships for BPL families.
+            </p>
+            <a href="#" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold transition-all shadow shadow-orange-500/30 hover:-translate-y-0.5">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download Fee Structure
+            </a>
           </div>
         </div>
       </section>

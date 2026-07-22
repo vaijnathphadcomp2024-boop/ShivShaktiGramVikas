@@ -25,7 +25,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-navy',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
       </svg>
     ),
   },
@@ -38,7 +38,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-forest',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
       </svg>
     ),
   },
@@ -51,7 +51,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-saffron',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
       </svg>
     ),
   },
@@ -64,7 +64,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-magenta',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
       </svg>
     ),
   },
@@ -78,7 +78,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-red-600',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
       </svg>
     ),
   },
@@ -91,7 +91,7 @@ const QUICK_LINKS = [
     iconBg: 'bg-purple-600',
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
       </svg>
     ),
   },
@@ -165,7 +165,7 @@ export default function Home() {
       {/* ── 2. Hero Banner ────────────────────────────────────────────────── */}
       <section
         id="hero"
-        className="relative overflow-hidden hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest min-h-[88vh] flex items-center"
+        className="relative overflow-hidden hero-section bg-gradient-to-br from-navy via-[#0f2d4a] to-forest py-10 sm:py-12 flex items-center"
       >
         <div className="hero-watermark">
           <img src="/assets/logo.jpg" alt="" aria-hidden="true" />
@@ -175,69 +175,58 @@ export default function Home() {
         <div className="absolute -bottom-32 -left-32 w-[32rem] h-[32rem] rounded-full bg-forest/20 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] rounded-full bg-white/[0.03] border border-white/5 pointer-events-none" />
 
-        <div className="relative z-10 animate-fadeInUp max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white text-center">
+        <div className="relative z-10 animate-fadeInUp max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 text-white text-center">
           {/* Tag line pill */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 rounded-full px-4 py-1.5 text-sm mb-6 text-orange-200">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 rounded-full px-4 py-1 text-xs sm:text-sm mb-3 text-orange-200">
             <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
-            Empowering Rural Maharashtra Since 2018
+            Empowering Rural Maharashtra
           </div>
 
-          <p className="text-saffron text-[1.5rem] font-semibold mb-2">Let us build the person, build the village, build the nation.</p>
-          <p className="text-blue-100 italic text-base sm:text-lg mb-6">One Goal... All-Round Development</p>
+          <p className="text-saffron text-base sm:text-lg font-semibold mb-1">Let us build the person, build the village, build the nation.</p>
+          <p className="text-blue-100 italic text-xs sm:text-sm mb-3">One Goal... All-Round Development</p>
 
           {/* Main heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 drop-shadow-xl">
-            एकच ध्यास... सर्वांगिण विकास...
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-3 drop-shadow-xl">
+           एकच ध्यास... सर्वांगिण विकास...
           </h1>
 
           {/* Tagline */}
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-blue-100 leading-relaxed mb-10">
+          <p className="max-w-xl mx-auto text-sm sm:text-base text-blue-100 leading-relaxed mb-5">
             Dedicated to uplifting rural communities through quality education,
             healthcare, safety training, and sustainable social development.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/pre-school"
               id="hero-explore-btn"
-              className="px-8 py-3.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold text-base shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-200 hover:-translate-y-0.5"
+              className="px-6 py-2.5 rounded-full bg-saffron hover:bg-orange-500 text-white font-bold text-sm shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-200 hover:-translate-y-0.5"
             >
               आमचे उपक्रम पाहा / Explore Programs →
             </Link>
             <Link
               to="/contact-news"
               id="hero-contact-btn"
-              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white font-bold text-base transition-all duration-200 hover:-translate-y-0.5"
+              className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5"
             >
               संपर्क करा / Contact Us
             </Link>
           </div>
 
-          {/* Stats strip — glassmorphism cards */}
-          <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          {/* Stats strip */}
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
             {[
-              { num: '1000+', label: 'Students Benefited', icon: '🎓' },
-              { num: '5', label: 'Active Programs', icon: '🌟' },
-              { num: '24×7', label: 'Ambulance Service', icon: '🚑' },
-              { num: '10+', label: 'Villages Covered', icon: '🏘️' },
-            ].map(({ num, label, icon }) => (
-              <div
-                key={label}
-                className="relative overflow-hidden rounded-2xl p-4 text-center
-                           border border-white/15 group cursor-default"
-                style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(16px)' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-saffron/10 to-transparent
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <p className="text-xl mb-1 relative z-10">{icon}</p>
-                <p className="text-2xl sm:text-3xl font-extrabold text-saffron relative z-10 drop-shadow-sm">{num}</p>
-                <p className="text-xs sm:text-sm text-blue-200 mt-0.5 relative z-10">{label}</p>
+              { num: '1000+', label: 'Students Benefited' },
+              { num: '5',     label: 'Active Programs' },
+              { num: '24×7',  label: 'Ambulance Service' },
+              { num: '10+',   label: 'Villages Covered' },
+            ].map(({ num, label }) => (
+              <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
+                <p className="text-xl sm:text-2xl font-extrabold text-saffron">{num}</p>
+                <p className="text-[11px] sm:text-xs text-blue-200 mt-0.5">{label}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-8 h-1.5 rounded-full bg-white/10 overflow-hidden max-w-3xl mx-auto">
-            <div className="h-full bg-gradient-to-r from-saffron to-orange-400 animate-heroProgress" aria-hidden="true" />
           </div>
         </div>
       </section>
@@ -245,9 +234,9 @@ export default function Home() {
       <BannerSlider pageId="home" />
 
       {/* ── 3. Quick Links Grid ────────────────────────────────────────────── */}
-      <section id="programs" className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <section id="programs" className="bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mb-3">
               Our Programs
             </h2>
@@ -263,38 +252,27 @@ export default function Home() {
               <Link
                 key={to}
                 to={to}
-                className={`group rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4
-                            transition-all duration-350 hover:-translate-y-2
-                            hover:shadow-2xl hover:shadow-navy/10`}
+                className={`group rounded-2xl border bg-gradient-to-br ${color} p-6 flex flex-col gap-4 hover:shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
               >
-                {/* Icon with gradient glow ring on hover */}
-                <div className="relative w-fit">
-                  <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center
-                                  shadow-lg group-hover:scale-110 group-hover:shadow-xl
-                                  transition-all duration-300`}>
-                    {icon}
-                  </div>
-                  <div className={`absolute inset-0 rounded-xl ${iconBg} opacity-0 group-hover:opacity-30
-                                  blur-md transition-opacity duration-300 -z-10`} />
+                <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-200`}>
+                  {icon}
                 </div>
-
-                <div className="flex-1">
+                <div>
                   <p className="text-saffron font-semibold text-sm mb-1">{marathi}</p>
-                  <h3 className="font-bold text-navy text-lg leading-tight mb-1.5">{label}</h3>
+                  <h3 className="font-bold text-navy text-lg leading-tight mb-1.5">
+                    {label}
+                  </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
                   {contact && (
-                    <p className="mt-3 text-red-600 font-bold">
+                    <p className="mt-3 text-red-600 font-semibold">
                       <a href={`tel:+91${contact}`}>{contact}</a>
                     </p>
                   )}
                 </div>
-
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-navy
-                                 group-hover:text-saffron transition-colors duration-200">
-                  पाहा
-                  <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200"
-                    fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-navy group-hover:text-saffron transition-colors">
+                  पाहा →
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                   </svg>
                 </span>
               </Link>
@@ -304,7 +282,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. About Preview ───────────────────────────────────────────────── */}
-      <section id="about-preview" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="about-preview" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-br from-navy to-forest rounded-3xl overflow-hidden shadow-2xl">
             <div className="grid md:grid-cols-2 gap-0">
@@ -314,10 +292,10 @@ export default function Home() {
                   Who We Are
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-5 leading-tight">
-                  About Shivshakti GramVikas Pratishtan
+                  About Shivshakti GramVikas Pratishthan
                 </h2>
                 <p className="text-blue-100 leading-relaxed mb-4">
-                  Shivshakti GramVikas Pratishtan is a registered non-governmental
+                  Shivshakti GramVikas Pratishthan is a registered non-governmental
                   organisation rooted in the heart of rural Maharashtra. Founded with
                   the mission to bridge the gap between urban opportunities and rural
                   realities, we run transformative programmes in education, safety,
@@ -357,7 +335,7 @@ export default function Home() {
                 >
                   आमच्याबद्दल अधिक / Learn More About Us →
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                   </svg>
                 </Link>
               </div>
@@ -386,9 +364,9 @@ export default function Home() {
       </section>
 
       {/* ── 5. Impact Summary ───────────────────────────────────────────────── */}
-      <section id="impact" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="impact" className="py-10 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <p className="text-saffron font-semibold uppercase tracking-[0.35em] text-sm mb-3">गणना आणि प्रभाव</p>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy">Our Impact at a Glance</h2>
             <p className="text-gray-500 max-w-2xl mx-auto mt-3">
@@ -399,32 +377,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {statsToShow.map(({ emoji, title, subtitle, value, suffix }) => (
-              <div
-                key={title}
-                className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 text-center
-                           shadow-sm hover:shadow-xl hover:-translate-y-2
-                           transition-all duration-350 group cursor-default"
-              >
-                {/* Gradient top accent */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron to-orange-400 rounded-t-2xl" />
-                {/* Hover background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-transparent
-                                opacity-0 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none" />
-
-                <div className="relative z-10">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{emoji}</div>
-                  <p className="font-black text-3xl mb-1.5"
-                    style={{
-                      background: 'linear-gradient(135deg, #f97316, #ea580c)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}>
-                    {value}{suffix}
-                  </p>
-                  <p className="text-navy font-semibold text-sm mt-1.5">{title}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{subtitle}</p>
-                </div>
+              <div key={title} className="rounded-3xl border border-slate-200/80 bg-slate-50 p-6 text-center shadow-sm">
+                <div className="text-4xl mb-4">{emoji}</div>
+                <p className="text-saffron font-bold text-3xl">{value}{suffix}</p>
+                <p className="text-navy font-semibold mt-2">{title}</p>
+                <p className="text-gray-500 text-sm mt-1">{subtitle}</p>
               </div>
             ))}
           </div>
@@ -432,9 +389,9 @@ export default function Home() {
       </section>
 
       {/* ── 6. Photo Gallery Preview ───────────────────────────────────────── */}
-      <section id="gallery" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="gallery" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mb-3">
               Gallery
             </h2>
@@ -458,68 +415,30 @@ export default function Home() {
       </section>
 
       {/* ── 6. Quote Banner ───────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0f2744] text-white py-20 px-4 sm:px-6 lg:px-8">
-        {/* Decorative background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-saffron/5 blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full bg-forest/10 blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Decorative quote mark */}
-          <div
-            className="text-[6rem] leading-none font-serif font-black mb-2 select-none"
-            style={{
-              background: 'linear-gradient(135deg, #f97316, rgba(249,115,22,0.3))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            “
-          </div>
-          <p className="text-white text-3xl sm:text-4xl font-serif leading-tight mb-5">
+      <section className="bg-[#0f2744] text-white py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-saffron text-[4rem] leading-none font-semibold">“</p>
+          <p className="text-white text-3xl sm:text-4xl font-serif leading-tight mb-4">
             माणुसकी हाच खरा धर्म आहे
           </p>
-          <p className="text-saffron italic text-lg sm:text-xl mb-4">
+          <p className="text-saffron italic text-lg sm:text-xl mb-3">
             Humanity is the True Religion
           </p>
-          <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-12 bg-saffron/40" />
-            <p className="text-gray-400 text-sm">शिवशक्ती ग्रामविकास प्रतिष्ठान</p>
-            <span className="h-px w-12 bg-saffron/40" />
-          </div>
+          <p className="text-gray-400 text-sm">— शिवशक्ती ग्रामविकास प्रतिष्ठान</p>
         </div>
       </section>
 
       {/* ── 7. Ambulance Emergency Strip ────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden text-white py-12 px-4 sm:px-6 lg:px-8"
-        style={{ background: 'linear-gradient(135deg, #be123c, #e11d48, #be123c)', backgroundSize: '200% 200%', animation: 'gradientShift 8s ease infinite' }}
-      >
-        {/* Animated subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 30px,white 30px,white 31px),repeating-linear-gradient(90deg,transparent,transparent 30px,white 30px,white 31px)' }}
-        />
-        <div className="relative z-10 max-w-7xl mx-auto grid gap-6 md:grid-cols-2 items-center">
+      <section className="bg-[#e11d48] text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-2 items-center">
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              {/* Pulsing indicator */}
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white" />
-              </span>
-              <p className="text-xs uppercase tracking-[0.3em] text-white/80">🚑 रुग्णवाहिका सेवा — किनगाव</p>
-            </div>
+            <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-3">🚑 रुग्णवाहिका सेवा — किनगाव</p>
             <p className="text-3xl sm:text-4xl font-bold mb-3">हर पल आपकी सेवा में, हर सफर सुरक्षित!</p>
-            <p className="text-sm text-white/80">Ambulance · Kinganv · 50km Coverage · 24×7</p>
+            <p className="text-sm text-white/80">Ambulance · Kingaon · 50km Coverage · 24×7</p>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-4">
-            <a href="tel:+919272418496" className="text-[#f9c74f] font-black text-3xl sm:text-4xl tracking-wide">9272418496</a>
-            <a href="tel:+919272418496"
-              className="inline-flex items-center justify-center rounded-full bg-white text-[#e11d48]
-                          font-extrabold px-8 py-3.5 shadow-xl hover:bg-yellow-50
-                          transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+            <a href="tel:+919272418496" className="text-[#f9c74f] font-bold text-3xl sm:text-4xl underline decoration-white/40">9272418496</a>
+            <a href="tel:+919272418496" className="inline-flex items-center justify-center rounded-full bg-white text-[#e11d48] font-bold px-6 py-3 shadow-lg hover:bg-slate-100 transition-colors duration-200">
               CALL NOW
             </a>
           </div>
@@ -529,7 +448,7 @@ export default function Home() {
       {/* ── 8. Contact Strip ───────────────────────────────────────────────── */}
       <section
         id="contact-strip"
-        className="bg-gradient-to-r from-forest to-navy py-12 px-4 sm:px-6 lg:px-8"
+        className="bg-gradient-to-r from-forest to-navy py-8 px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
@@ -541,63 +460,55 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {/* Address */}
             <div
-              className="flex flex-col items-center gap-4 rounded-2xl p-7 border
-                         hover:border-saffron/40 transition-all duration-300 group"
-              style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.12)' }}
+              className="flex flex-col items-center gap-3 bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15"
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg
-                              group-hover:scale-110 transition-transform duration-300"
-                style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
+              <div className="w-12 h-12 rounded-full bg-saffron flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
               </div>
-              <p className="text-white font-semibold text-center text-sm leading-relaxed">
-                📍 किनगाव, ता. अहमदपूर, जि. लातूर, महाराष्ट्र
-              </p>
+              <div className="text-center">
+                <p className="text-white font-bold">📍 किनगाव, ता. अहमदपूर, जि. लातूर - ४१३५२३, महाराष्ट्र / Kingaon - 413523</p>
+              </div>
             </div>
 
             {/* Email */}
             <div
-              className="flex flex-col items-center gap-4 rounded-2xl p-7 border
-                         hover:border-saffron/40 transition-all duration-300 group"
-              style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.12)' }}
+              className="flex flex-col items-center gap-3 bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15"
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg
-                              group-hover:scale-110 transition-transform duration-300"
-                style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
+              <div className="w-12 h-12 rounded-full bg-saffron flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
               </div>
               <div className="text-center">
-                <a href="mailto:shivshaktigramvikas@gmail.com" className="text-white font-semibold text-sm hover:text-saffron transition-colors block">shivshaktigramvikas@gmail.com</a>
-                <a href="mailto:sit.mh2026@gmail.com" className="text-green-300 text-xs hover:text-saffron transition-colors mt-1 block">sit.mh2026@gmail.com</a>
+                <p className="text-white font-bold">
+                  <a href="mailto:shivshaktigramvikas@gmail.com" className="underline decoration-white/70">shivshaktigramvikas@gmail.com</a>
+                </p>
+                <p className="text-green-200 text-sm">
+                  <a href="mailto:sit.mh2026@gmail.com" className="underline decoration-white/70">sit.mh2026@gmail.com</a>
+                </p>
               </div>
             </div>
 
             {/* Phone */}
             <div
-              className="flex flex-col items-center gap-4 rounded-2xl p-7 border
-                         hover:border-saffron/40 transition-all duration-300 group"
-              style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.12)' }}
+              className="flex flex-col items-center gap-3 bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/15"
             >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg
-                              group-hover:scale-110 transition-transform duration-300"
-                style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
+              <div className="w-12 h-12 rounded-full bg-saffron flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
               </div>
-              <div className="text-center space-y-0.5">
-                <p className="text-white font-semibold text-sm">📞 श्री. वसंत दहिफळे</p>
-                <a href="tel:+919763660738" className="text-green-300 text-sm hover:text-saffron transition-colors block">9763660738</a>
-                <p className="text-white font-semibold text-sm mt-3">📞 श्री. पांडुरंग दहिफळे</p>
-                <a href="tel:+919822375105" className="text-green-300 text-sm hover:text-saffron transition-colors block">9822375105</a>
+              <div className="text-center">
+                <p className="text-white font-bold">📞 श्री. वसंत दहिफळे</p>
+                <p className="text-green-200 text-sm"><a href="tel:+919763660738" className="underline decoration-white/70">9763660738</a></p>
+                <p className="text-white font-bold mt-4">📞 श्री. पांडुरंग दहिफळे</p>
+                <p className="text-green-200 text-sm"><a href="tel:+919822375105" className="underline decoration-white/70">9822375105</a></p>
               </div>
             </div>
           </div>

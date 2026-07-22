@@ -28,7 +28,7 @@ export default function AdminLogin() {
     <main className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <h1 className="text-2xl font-extrabold text-navy mb-1">Admin Login</h1>
-        <p className="text-gray-500 text-sm mb-6">Shivshakti GramVikas Pratishtan</p>
+        <p className="text-gray-500 text-sm mb-6">Shivshakti GramVikas Pratishthan</p>
         
         {error && (
           <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg mb-4 border border-red-200">

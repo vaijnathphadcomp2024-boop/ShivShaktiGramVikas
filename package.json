@@ -1,13 +1,11 @@
 {
   "name": "shivshakti-monorepo",
   "version": "1.0.0",
-  "description": "Shivshakti GramVikas Pratishtan — MERN Monorepo",
+  "description": "Shivshakti GramVikas Pratishthan — MERN Monorepo",
   "scripts": {
-    "postinstall": "npm install --prefix client",
-    "client": "npm run dev --prefix client",
-    "dev": "npm run dev --prefix client",
-    "build": "npm run build --prefix client",
-    "preview": "npm run preview --prefix client"
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "start cmd /k \"cd client && npm run dev\" && start cmd /k \"cd server && npm run dev\""
   },
   "keywords": ["NGO", "MERN", "rural-development"]
 }
